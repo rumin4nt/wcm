@@ -105,12 +105,13 @@ message(${sources})
 add_executable(demo_wash ${sources})
 
 
+target_include_directories (demo_wash PUBLIC ${CMAKE_SOURCE_DIR}/src)
 target_include_directories (demo_wash PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../../../libs)
 target_include_directories (demo_wash PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../../../contrib/include)
 target_include_directories (demo_wash PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../../../contrib)
 
 if(${OperatingSystem} MATCHES "macos")
-	target_link_libraries(demo_wash LINK_PUBLIC wsh glfw
+	target_link_libraries(demo_wash LINK_PUBLIC wcm glfw
 	${GL_LIB}
 	${COCOA_LIBRARY}
 	${IO_LIB}

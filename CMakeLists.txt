@@ -38,9 +38,10 @@ if(BUILD_DOCUMENTATION)
 	set(build_doc YES)
 endif()
 
+set(build_demo YES)
 
 if(${OperatingSystem} MATCHES "macos")
-	file(GLOB sources src/*.c src/platform/macos/*.m )
+	file(GLOB sources src/*.c src/*.m contrib/wacom/macos/*.m)
 	FIND_LIBRARY(COCOA_LIB Cocoa)
 	FIND_LIBRARY(OPENGL_LIB OpenGL)
 	FIND_LIBRARY(CARBON_LIB Carbon)
@@ -54,12 +55,13 @@ if(${OperatingSystem} MATCHES "linux")
 endif()
 
 
-
-
-
 if(${OperatingSystem} MATCHES "macos")
 	add_library(wcm SHARED ${sources} ${FOUNDATION_LIB})
 	target_link_libraries(wcm LINK_PUBLIC ${COCOA_LIB} ${CARBON_LIB} ${CV_LIB} ${OPENGL_LIB})
+endif()
+
+if(build_demo)
+	add_subdirectory(demo)
 endif()
 
 target_include_directories (${project_name} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/..)
