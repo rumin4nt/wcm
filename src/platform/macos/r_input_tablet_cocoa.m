@@ -79,11 +79,11 @@ void process_event(NSEvent* theEvent)
 	 */
 	
 	
-		if ( eventType == NSEventTypeTabletProximity )
-		{
-			//printf("TABLET!?\n");
-			isTabletProximityEvent = true;
-		}
+	if ( eventType == NSEventTypeTabletProximity )
+	{
+		//printf("TABLET!?\n");
+		isTabletProximityEvent = true;
+	}
 	
 	//NSEventSubtype st = [theEvent subtype];
 	
@@ -135,7 +135,7 @@ void process_event(NSEvent* theEvent)
 	
 	if (!isTabletPointEvent) {
 		//printf("ditch2\n");
-			return;
+		return;
 	}
 	//printf("TABLET\n");
 	//if (!InputTablet::singleton->tablet_proximal ){
@@ -235,7 +235,7 @@ void process_event(NSEvent* theEvent)
 			break;
 		case R_TABLET_DOWN:
 			printf("d");
-
+			
 			//[NSEvent setMouseCoalescingEnabled:false];
 			//app_extensions.coalescing_events = false;
 			//wcm_recv_tablet_motion
@@ -246,7 +246,7 @@ void process_event(NSEvent* theEvent)
 			break;
 		case R_TABLET_UP:
 			printf("u");
-
+			
 			//app_extensions.coalescing_events = true;
 			//[NSEvent setMouseCoalescingEnabled:true];
 			wcm_recv_tablet_up(x, y, button, pressure, rotation, tilt_x, tilt_y, tangential);
@@ -260,7 +260,7 @@ void process_event(NSEvent* theEvent)
 		case R_TABLET_DRAG:
 			wcm_recv_tablet_proximity(true);
 			wcm_recv_tablet_drag(x, y, button, pressure, rotation, tilt_x, tilt_y, tangential);
-
+			
 			//b_receive_tablet_drag(x,y);
 			break;
 		default:
@@ -415,9 +415,16 @@ void r_input_tablet_cocoa_init()
 	
 	// If no context, create one
 	if (mContextID == 0) {
-		mContextID       = [WacomTabletDriver createContextForTablet:mLastUsedTablet type:pContextTypeDefault];
-		mTabletOfContext = mLastUsedTablet;
+		if (mLastUsedTablet != 0 )
+		{
+			mContextID       = [WacomTabletDriver createContextForTablet:mLastUsedTablet type:pContextTypeDefault];
+			mTabletOfContext = mLastUsedTablet;
+		}else{
+			printf("Not creating context for a 0 tablet (somewhere in the docs it says counting from one?\n");
+			
+		}
 	}
+	
 	
 	/*
 	 
@@ -432,7 +439,7 @@ void r_input_tablet_cocoa_init()
 	
 	
 	NSEventMask observedTypes =
-		NSTabletPointMask
+	NSTabletPointMask
 	|	NSTabletProximityMask
 	
 	|	NSMouseMovedMask
