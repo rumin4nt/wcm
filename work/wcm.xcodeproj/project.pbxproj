@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5760ECCD2062DD4200430B0A /* wcm.c in Sources */ = {isa = PBXBuildFile; fileRef = 5760ECCB2062DD4200430B0A /* wcm.c */; };
 		5760ECCE2062DD4200430B0A /* wcm.h in Headers */ = {isa = PBXBuildFile; fileRef = 5760ECCC2062DD4200430B0A /* wcm.h */; };
+		5760ECE120630DB600430B0A /* wcm_tablet_pencil.h in Headers */ = {isa = PBXBuildFile; fileRef = 5760ECDF20630DB600430B0A /* wcm_tablet_pencil.h */; };
+		5760ECE220630DB600430B0A /* wcm_tablet_pencil.m in Sources */ = {isa = PBXBuildFile; fileRef = 5760ECE020630DB600430B0A /* wcm_tablet_pencil.m */; };
 		57AAD904206306E500136719 /* wcm_tablet_cocoa.m in Sources */ = {isa = PBXBuildFile; fileRef = 57AAD8FE206306E500136719 /* wcm_tablet_cocoa.m */; };
 		57AAD905206306E500136719 /* wcm_tablet_x11.c in Sources */ = {isa = PBXBuildFile; fileRef = 57AAD8FF206306E500136719 /* wcm_tablet_x11.c */; };
 		57AAD906206306E500136719 /* wcm_tablet_x11.h in Headers */ = {isa = PBXBuildFile; fileRef = 57AAD900206306E500136719 /* wcm_tablet_x11.h */; };
@@ -26,6 +28,8 @@
 		5760ECAF2062D68C00430B0A /* libwcm.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libwcm.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5760ECCB2062DD4200430B0A /* wcm.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = wcm.c; sourceTree = "<group>"; };
 		5760ECCC2062DD4200430B0A /* wcm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wcm.h; sourceTree = "<group>"; };
+		5760ECDF20630DB600430B0A /* wcm_tablet_pencil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wcm_tablet_pencil.h; sourceTree = "<group>"; };
+		5760ECE020630DB600430B0A /* wcm_tablet_pencil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = wcm_tablet_pencil.m; sourceTree = "<group>"; };
 		57AAD8FE206306E500136719 /* wcm_tablet_cocoa.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = wcm_tablet_cocoa.m; sourceTree = "<group>"; };
 		57AAD8FF206306E500136719 /* wcm_tablet_x11.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = wcm_tablet_x11.c; sourceTree = "<group>"; };
 		57AAD900206306E500136719 /* wcm_tablet_x11.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wcm_tablet_x11.h; sourceTree = "<group>"; };
@@ -70,6 +74,8 @@
 		5760ECB72062D7F300430B0A /* src */ = {
 			isa = PBXGroup;
 			children = (
+				5760ECDF20630DB600430B0A /* wcm_tablet_pencil.h */,
+				5760ECE020630DB600430B0A /* wcm_tablet_pencil.m */,
 				57AAD901206306E500136719 /* wcm_tablet_cocoa.h */,
 				57AAD8FE206306E500136719 /* wcm_tablet_cocoa.m */,
 				57AAD902206306E500136719 /* wcm_tablet_ez.c */,
@@ -108,6 +114,7 @@
 				57AAD9132063073C00136719 /* NSAppleEventDescriptorHelperCategory.h in Headers */,
 				57AAD909206306E500136719 /* wcm_tablet_ez.h in Headers */,
 				57AAD9142063073C00136719 /* WacomTabletDriver.h in Headers */,
+				5760ECE120630DB600430B0A /* wcm_tablet_pencil.h in Headers */,
 				57AAD906206306E500136719 /* wcm_tablet_x11.h in Headers */,
 				57AAD907206306E500136719 /* wcm_tablet_cocoa.h in Headers */,
 			);
@@ -172,6 +179,7 @@
 			files = (
 				57AAD9102063073C00136719 /* NSAppleEventDescriptorHelperCategory.m in Sources */,
 				57AAD908206306E500136719 /* wcm_tablet_ez.c in Sources */,
+				5760ECE220630DB600430B0A /* wcm_tablet_pencil.m in Sources */,
 				5760ECCD2062DD4200430B0A /* wcm.c in Sources */,
 				57AAD9122063073C00136719 /* WacomTabletDriver.m in Sources */,
 				57AAD905206306E500136719 /* wcm_tablet_x11.c in Sources */,
