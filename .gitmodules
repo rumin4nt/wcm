@@ -1,0 +1,3 @@
+[submodule "contrib/easytab"]
+	path = contrib/easytab
+	url = git@github.com:ApoorvaJ/EasyTab.git

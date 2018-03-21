@@ -1,0 +1,368 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5760ECBC2062D81100430B0A /* wcm.c in Sources */ = {isa = PBXBuildFile; fileRef = 5760ECBA2062D81100430B0A /* wcm.c */; };
+		5760ECC92062D8A000430B0A /* wcm_ez.h in Headers */ = {isa = PBXBuildFile; fileRef = 5760ECC72062D8A000430B0A /* wcm_ez.h */; };
+		5760ECCA2062D8A000430B0A /* wcm_ez.c in Sources */ = {isa = PBXBuildFile; fileRef = 5760ECC82062D8A000430B0A /* wcm_ez.c */; };
+		5760ECCD2062DD4200430B0A /* wcm.c in Sources */ = {isa = PBXBuildFile; fileRef = 5760ECCB2062DD4200430B0A /* wcm.c */; };
+		5760ECCE2062DD4200430B0A /* wcm.h in Headers */ = {isa = PBXBuildFile; fileRef = 5760ECCC2062DD4200430B0A /* wcm.h */; };
+		5760ECD62062DD5E00430B0A /* NSAppleEventDescriptorHelperCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = 5760ECCF2062DD5D00430B0A /* NSAppleEventDescriptorHelperCategory.h */; };
+		5760ECD72062DD5E00430B0A /* WacomTabletDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = 5760ECD02062DD5E00430B0A /* WacomTabletDriver.m */; };
+		5760ECD82062DD5E00430B0A /* TabletAEDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 5760ECD12062DD5E00430B0A /* TabletAEDictionary.h */; };
+		5760ECD92062DD5E00430B0A /* r_input_tablet_cocoa.h in Headers */ = {isa = PBXBuildFile; fileRef = 5760ECD22062DD5E00430B0A /* r_input_tablet_cocoa.h */; };
+		5760ECDA2062DD5E00430B0A /* WacomTabletDriver.h in Headers */ = {isa = PBXBuildFile; fileRef = 5760ECD32062DD5E00430B0A /* WacomTabletDriver.h */; };
+		5760ECDB2062DD5E00430B0A /* r_input_tablet_cocoa.m in Sources */ = {isa = PBXBuildFile; fileRef = 5760ECD42062DD5E00430B0A /* r_input_tablet_cocoa.m */; };
+		5760ECDC2062DD5E00430B0A /* NSAppleEventDescriptorHelperCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5760ECD52062DD5E00430B0A /* NSAppleEventDescriptorHelperCategory.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5760ECAF2062D68C00430B0A /* libwcm.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libwcm.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5760ECBA2062D81100430B0A /* wcm.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = wcm.c; path = ../src/wcm.c; sourceTree = "<group>"; };
+		5760ECC72062D8A000430B0A /* wcm_ez.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wcm_ez.h; sourceTree = "<group>"; };
+		5760ECC82062D8A000430B0A /* wcm_ez.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = wcm_ez.c; sourceTree = "<group>"; };
+		5760ECCB2062DD4200430B0A /* wcm.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = wcm.c; sourceTree = "<group>"; };
+		5760ECCC2062DD4200430B0A /* wcm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wcm.h; sourceTree = "<group>"; };
+		5760ECCF2062DD5D00430B0A /* NSAppleEventDescriptorHelperCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSAppleEventDescriptorHelperCategory.h; sourceTree = "<group>"; };
+		5760ECD02062DD5E00430B0A /* WacomTabletDriver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WacomTabletDriver.m; sourceTree = "<group>"; };
+		5760ECD12062DD5E00430B0A /* TabletAEDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabletAEDictionary.h; sourceTree = "<group>"; };
+		5760ECD22062DD5E00430B0A /* r_input_tablet_cocoa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = r_input_tablet_cocoa.h; sourceTree = "<group>"; };
+		5760ECD32062DD5E00430B0A /* WacomTabletDriver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WacomTabletDriver.h; sourceTree = "<group>"; };
+		5760ECD42062DD5E00430B0A /* r_input_tablet_cocoa.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = r_input_tablet_cocoa.m; sourceTree = "<group>"; };
+		5760ECD52062DD5E00430B0A /* NSAppleEventDescriptorHelperCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSAppleEventDescriptorHelperCategory.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5760ECAC2062D68C00430B0A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5760ECA62062D68C00430B0A = {
+			isa = PBXGroup;
+			children = (
+				5760ECB72062D7F300430B0A /* src */,
+				5760ECB62062D7E300430B0A /* include */,
+				5760ECB02062D68C00430B0A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5760ECB02062D68C00430B0A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5760ECAF2062D68C00430B0A /* libwcm.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5760ECB62062D7E300430B0A /* include */ = {
+			isa = PBXGroup;
+			children = (
+				5760ECBA2062D81100430B0A /* wcm.c */,
+			);
+			name = include;
+			path = ../include;
+			sourceTree = "<group>";
+		};
+		5760ECB72062D7F300430B0A /* src */ = {
+			isa = PBXGroup;
+			children = (
+				5760ECCB2062DD4200430B0A /* wcm.c */,
+				5760ECCC2062DD4200430B0A /* wcm.h */,
+				5760ECC22062D88E00430B0A /* platform */,
+			);
+			name = src;
+			path = ../src;
+			sourceTree = "<group>";
+		};
+		5760ECC22062D88E00430B0A /* platform */ = {
+			isa = PBXGroup;
+			children = (
+				5760ECC32062D88E00430B0A /* macos */,
+				5760ECC42062D88E00430B0A /* common */,
+				5760ECC52062D88E00430B0A /* linux */,
+				5760ECC62062D88E00430B0A /* windows */,
+			);
+			path = platform;
+			sourceTree = "<group>";
+		};
+		5760ECC32062D88E00430B0A /* macos */ = {
+			isa = PBXGroup;
+			children = (
+				5760ECCF2062DD5D00430B0A /* NSAppleEventDescriptorHelperCategory.h */,
+				5760ECD52062DD5E00430B0A /* NSAppleEventDescriptorHelperCategory.m */,
+				5760ECD22062DD5E00430B0A /* r_input_tablet_cocoa.h */,
+				5760ECD42062DD5E00430B0A /* r_input_tablet_cocoa.m */,
+				5760ECD12062DD5E00430B0A /* TabletAEDictionary.h */,
+				5760ECD32062DD5E00430B0A /* WacomTabletDriver.h */,
+				5760ECD02062DD5E00430B0A /* WacomTabletDriver.m */,
+			);
+			path = macos;
+			sourceTree = "<group>";
+		};
+		5760ECC42062D88E00430B0A /* common */ = {
+			isa = PBXGroup;
+			children = (
+				5760ECC72062D8A000430B0A /* wcm_ez.h */,
+				5760ECC82062D8A000430B0A /* wcm_ez.c */,
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
+		5760ECC52062D88E00430B0A /* linux */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = linux;
+			sourceTree = "<group>";
+		};
+		5760ECC62062D88E00430B0A /* windows */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = windows;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		5760ECAD2062D68C00430B0A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5760ECDA2062DD5E00430B0A /* WacomTabletDriver.h in Headers */,
+				5760ECCE2062DD4200430B0A /* wcm.h in Headers */,
+				5760ECC92062D8A000430B0A /* wcm_ez.h in Headers */,
+				5760ECD82062DD5E00430B0A /* TabletAEDictionary.h in Headers */,
+				5760ECD62062DD5E00430B0A /* NSAppleEventDescriptorHelperCategory.h in Headers */,
+				5760ECD92062DD5E00430B0A /* r_input_tablet_cocoa.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		5760ECAE2062D68C00430B0A /* wcm */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5760ECB32062D68C00430B0A /* Build configuration list for PBXNativeTarget "wcm" */;
+			buildPhases = (
+				5760ECAB2062D68C00430B0A /* Sources */,
+				5760ECAC2062D68C00430B0A /* Frameworks */,
+				5760ECAD2062D68C00430B0A /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = wcm;
+			productName = wcm;
+			productReference = 5760ECAF2062D68C00430B0A /* libwcm.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5760ECA72062D68C00430B0A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = ruminant;
+				TargetAttributes = {
+					5760ECAE2062D68C00430B0A = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 5760ECAA2062D68C00430B0A /* Build configuration list for PBXProject "wcm" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5760ECA62062D68C00430B0A;
+			productRefGroup = 5760ECB02062D68C00430B0A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5760ECAE2062D68C00430B0A /* wcm */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5760ECAB2062D68C00430B0A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5760ECCD2062DD4200430B0A /* wcm.c in Sources */,
+				5760ECD72062DD5E00430B0A /* WacomTabletDriver.m in Sources */,
+				5760ECCA2062D8A000430B0A /* wcm_ez.c in Sources */,
+				5760ECDC2062DD5E00430B0A /* NSAppleEventDescriptorHelperCategory.m in Sources */,
+				5760ECBC2062D81100430B0A /* wcm.c in Sources */,
+				5760ECDB2062DD5E00430B0A /* r_input_tablet_cocoa.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		5760ECB12062D68C00430B0A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		5760ECB22062D68C00430B0A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		5760ECB42062D68C00430B0A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W7MSG2FEA9;
+				EXECUTABLE_PREFIX = lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		5760ECB52062D68C00430B0A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W7MSG2FEA9;
+				EXECUTABLE_PREFIX = lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5760ECAA2062D68C00430B0A /* Build configuration list for PBXProject "wcm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5760ECB12062D68C00430B0A /* Debug */,
+				5760ECB22062D68C00430B0A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5760ECB32062D68C00430B0A /* Build configuration list for PBXNativeTarget "wcm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5760ECB42062D68C00430B0A /* Debug */,
+				5760ECB52062D68C00430B0A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5760ECA72062D68C00430B0A /* Project object */;
+}
