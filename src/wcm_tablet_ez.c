@@ -6,7 +6,7 @@
 //  Copyright © 2018 ruminant. All rights reserved.
 //
 
-#include "wcm_ez.h"
+#include "wcm_tablet_ez.h"
 
 #ifndef __APPLE__
 #define EASYTAB_IMPLEMENTATION

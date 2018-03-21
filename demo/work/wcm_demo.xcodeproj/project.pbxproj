@@ -66,7 +66,6 @@
 			children = (
 				57AAD8E62062E2C900136719 /* wcm.xcodeproj */,
 				57AAD8F22062E3EE00136719 /* libglfw.dylib */,
-				57AAD8F42062E3F400136719 /* lib */,
 				57AAD8E32062E29E00136719 /* src */,
 				57AAD8D92062E27600136719 /* Products */,
 				57AAD8F02062E2E400136719 /* Frameworks */,
@@ -103,13 +102,6 @@
 			children = (
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		57AAD8F42062E3F400136719 /* lib */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = lib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -1,20 +1,20 @@
 //
-//  r_input_tablet_cocoa.c
+//  wcm_tablet_cocoa.c
 //  r4
 //
 //  Created by vs on 12/26/16.
 //  Copyright © 2016 vaporstack. All rights reserved.
 //
 
-#include "r_input_tablet_cocoa.h"
+#include "wcm_tablet_cocoa.h"
 
-#include "WacomTabletDriver.h"
+#include "../contrib/wacom/macos/WacomTabletDriver.h"
 
 
 #include <AppKit/NSEvent.h>
 #include <Foundation/Foundation.h>
 
-#include "../../wcm.h"
+#include "wcm.h"
 
 //extern AppSettings   app_settings;
 //extern AppExtensions app_extensions;
@@ -398,11 +398,11 @@ void process_event(NSEvent* theEvent)
 	 */
 }
 
-void r_input_tablet_cocoa_deinit()
+void wcm_tablet_cocoa_deinit()
 {
 }
 
-void r_input_tablet_cocoa_init()
+void wcm_tablet_cocoa_init()
 {
 	printf("Initializing cocoa tablet handler.\n");
 	if (mLastUsedTablet != mTabletOfContext) {

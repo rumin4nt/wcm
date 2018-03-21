@@ -12,11 +12,15 @@ static int window_width;
 static int window_height;
 
 #ifdef __APPLE__
-#include "platform/macos/r_input_tablet_cocoa.h"
+#include "wcm_tablet_cocoa.h"
 #else
-#include "platform/common/wcm_ez.h"
+
+
+
+#include "wcm_tablet_ez.h"
 #endif
 
+#
 /*
  typedef void(*tablet_down_func)(double x, double y, double p);
  typedef void(*tablet_up_func)(double x, double y, double p);
@@ -37,9 +41,10 @@ int wcm_init(int w, int h)
 	window_height = h;
 
 #ifdef __APPLE__
-	r_input_tablet_cocoa_init();
+	wcm_tablet_cocoa_init();
 	return 0;
 #else
+	
 	return wcm_ez_init();
 #endif
 
@@ -50,7 +55,7 @@ void wcm_deinit(void)
 {
 
 #ifdef __APPLE__
-	r_input_tablet_cocoa_deinit();
+	wcm_tablet_cocoa_deinit();
 
 #else
 
