@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5760ECBC2062D81100430B0A /* wcm.c in Sources */ = {isa = PBXBuildFile; fileRef = 5760ECBA2062D81100430B0A /* wcm.c */; };
 		5760ECC92062D8A000430B0A /* wcm_ez.h in Headers */ = {isa = PBXBuildFile; fileRef = 5760ECC72062D8A000430B0A /* wcm_ez.h */; };
 		5760ECCA2062D8A000430B0A /* wcm_ez.c in Sources */ = {isa = PBXBuildFile; fileRef = 5760ECC82062D8A000430B0A /* wcm_ez.c */; };
 		5760ECCD2062DD4200430B0A /* wcm.c in Sources */ = {isa = PBXBuildFile; fileRef = 5760ECCB2062DD4200430B0A /* wcm.c */; };
@@ -23,7 +22,6 @@
 
 /* Begin PBXFileReference section */
 		5760ECAF2062D68C00430B0A /* libwcm.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libwcm.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		5760ECBA2062D81100430B0A /* wcm.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = wcm.c; path = ../src/wcm.c; sourceTree = "<group>"; };
 		5760ECC72062D8A000430B0A /* wcm_ez.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wcm_ez.h; sourceTree = "<group>"; };
 		5760ECC82062D8A000430B0A /* wcm_ez.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = wcm_ez.c; sourceTree = "<group>"; };
 		5760ECCB2062DD4200430B0A /* wcm.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = wcm.c; sourceTree = "<group>"; };
@@ -52,7 +50,6 @@
 			isa = PBXGroup;
 			children = (
 				5760ECB72062D7F300430B0A /* src */,
-				5760ECB62062D7E300430B0A /* include */,
 				5760ECB02062D68C00430B0A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -63,15 +60,6 @@
 				5760ECAF2062D68C00430B0A /* libwcm.a */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		5760ECB62062D7E300430B0A /* include */ = {
-			isa = PBXGroup;
-			children = (
-				5760ECBA2062D81100430B0A /* wcm.c */,
-			);
-			name = include;
-			path = ../include;
 			sourceTree = "<group>";
 		};
 		5760ECB72062D7F300430B0A /* src */ = {
@@ -210,7 +198,6 @@
 				5760ECD72062DD5E00430B0A /* WacomTabletDriver.m in Sources */,
 				5760ECCA2062D8A000430B0A /* wcm_ez.c in Sources */,
 				5760ECDC2062DD5E00430B0A /* NSAppleEventDescriptorHelperCategory.m in Sources */,
-				5760ECBC2062D81100430B0A /* wcm.c in Sources */,
 				5760ECDB2062DD5E00430B0A /* r_input_tablet_cocoa.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

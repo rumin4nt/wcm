@@ -231,7 +231,7 @@ void process_event(NSEvent* theEvent)
 	
 	switch (event_type) {
 		case R_TABLET_PROXIMITY:
-			b_receive_tablet_proximity(true);
+			wcm_recv_tablet_proximity(true);
 			break;
 		case R_TABLET_DOWN:
 			printf("d");
@@ -249,17 +249,17 @@ void process_event(NSEvent* theEvent)
 
 			//app_extensions.coalescing_events = true;
 			//[NSEvent setMouseCoalescingEnabled:true];
-			b_receive_tablet_up_rich(x, y, button, pressure, rotation, tilt_x, tilt_y, tangential);
+			wcm_recv_tablet_up(x, y, button, pressure, rotation, tilt_x, tilt_y, tangential);
 			
 			break;
 		case R_TABLET_MOTION:
 			//printf("m");
-			b_receive_tablet_motion_rich(x, y, button, pressure, rotation, tilt_x, tilt_y, tangential);
+			wcm_recv_tablet_motion(x, y, button, pressure, rotation, tilt_x, tilt_y, tangential);
 			
 			break;
 		case R_TABLET_DRAG:
-			b_receive_tablet_proximity(true);
-			b_receive_tablet_drag_rich(x, y, button, pressure, rotation, tilt_x, tilt_y, tangential);
+			wcm_recv_tablet_proximity(true);
+			wcm_recv_tablet_drag(x, y, button, pressure, rotation, tilt_x, tilt_y, tangential);
 
 			//b_receive_tablet_drag(x,y);
 			break;

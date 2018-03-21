@@ -1,26 +1,26 @@
 /*----------------------------------------------------------------------------
-
-FILE NAME
-	WacomTabletDriver.m
-
-PURPOSE
-	Apple Event access to the Wacom tablet driver.
-	
-	To set values in the driver, you must create a "context" object to represent 
-	your application and its customized values. Contexts are tied both to your 
-	application and to a specific tablet; contexts take the place of tablets in 
-	the object hiearchy. 
-	
-	You may retrieve values directly without creating a context. However, if you 
-	application does create a context, you should retrieve values through it 
-	instead of by querying the tablet directly. (See "Raw" vs. "Context-based" 
-	routing table methods.) 
-	
-COPYRIGHT
-	Copyright WACOM Technology, Inc.  2008 - 2010.
-	All rights reserved.
-
-----------------------------------------------------------------------------*/
+ 
+ FILE NAME
+ WacomTabletDriver.m
+ 
+ PURPOSE
+ Apple Event access to the Wacom tablet driver.
+ 
+ To set values in the driver, you must create a "context" object to represent
+ your application and its customized values. Contexts are tied both to your
+ application and to a specific tablet; contexts take the place of tablets in
+ the object hiearchy.
+ 
+ You may retrieve values directly without creating a context. However, if you
+ application does create a context, you should retrieve values through it
+ instead of by querying the tablet directly. (See "Raw" vs. "Context-based"
+ routing table methods.)
+ 
+ COPYRIGHT
+ Copyright WACOM Technology, Inc.  2008 - 2010.
+ All rights reserved.
+ 
+ ----------------------------------------------------------------------------*/
 
 
 #import "WacomTabletDriver.h"
@@ -62,32 +62,32 @@ COPYRIGHT
 	NSAppleEventDescriptor  *event         = nil;
 	NSAppleEventDescriptor  *routingDesc   = nil;
 	NSAppleEventDescriptor  *response      = nil;
-
+	
 	// create the apple event for object creation
-	event = [NSAppleEventDescriptor appleEventWithEventClass:kAECoreSuite 
-																	 eventID:kAECreateElement 
-														 targetDescriptor:[self driverAppleEventTarget]
-																	returnID:kAutoGenerateReturnID 
-															 transactionID:kAnyTransactionID];
-				
-				// set the object class to cContext
-	[event setDescriptor:[NSAppleEventDescriptor descriptorWithTypeCode:cContext] 
-				 forKeyword:keyAEObjectClass];
+	event = [NSAppleEventDescriptor appleEventWithEventClass:kAECoreSuite
+							 eventID:kAECreateElement
+						targetDescriptor:[self driverAppleEventTarget]
+							returnID:kAutoGenerateReturnID
+						   transactionID:kAnyTransactionID];
+	
+	// set the object class to cContext
+	[event setDescriptor:[NSAppleEventDescriptor descriptorWithTypeCode:cContext]
+		  forKeyword:keyAEObjectClass];
 	
 	// add the tablet index to the apple event to indicate which tablet we are
 	// creating the context for
 	routingDesc = [self routingTableForTablet:index];
 	[event setDescriptor:routingDesc
-				 forKeyword:keyAEInsertHere];
-						
+		  forKeyword:keyAEInsertHere];
+	
 	// indicate that we want a blank context
-	[event setDescriptor:[NSAppleEventDescriptor descriptorWithTypeCode:contextType] 
-				 forKeyword:keyASPrepositionFor];
+	[event setDescriptor:[NSAppleEventDescriptor descriptorWithTypeCode:contextType]
+		  forKeyword:keyASPrepositionFor];
 	
 	// send the apple event
-	response = [event sendExpectingReplyWithPriority:kAEHighPriority 
-													  andTimeout:kTabletDriverAETimeout];
-
+	response = [event sendExpectingReplyWithPriority:kAEHighPriority
+					      andTimeout:kTabletDriverAETimeout];
+	
 	// extract the context id and return it
 	return [[response descriptorForKeyword:keyDirectObject] int32Value];
 }
@@ -111,17 +111,17 @@ COPYRIGHT
 	NSAppleEventDescriptor  *routingDesc   = nil;
 	
 	// create the apple event for object deletion
-	event = [NSAppleEventDescriptor appleEventWithEventClass:kAECoreSuite 
-																	 eventID:kAEDelete 
-														 targetDescriptor:[self driverAppleEventTarget]
-																	returnID:kAutoGenerateReturnID 
-															 transactionID:kAnyTransactionID];
-
+	event = [NSAppleEventDescriptor appleEventWithEventClass:kAECoreSuite
+							 eventID:kAEDelete
+						targetDescriptor:[self driverAppleEventTarget]
+							returnID:kAutoGenerateReturnID
+						   transactionID:kAnyTransactionID];
+	
 	// add the context id to the event
 	routingDesc = [self routingTableForContext:context];
 	
 	[event setDescriptor:routingDesc
-				 forKeyword:keyDirectObject];
+		  forKeyword:keyDirectObject];
 	
 	// send the event
 	[event sendWithPriority:kAEHighPriority andTimeout:kTabletDriverAETimeout];
@@ -156,39 +156,39 @@ COPYRIGHT
 //
 //
 + (NSAppleEventDescriptor*) dataForAttribute:(DescType)attribute 
-												  ofType:(DescType)dataType 
-										  routingTable:(NSAppleEventDescriptor *)routingDesc
+				      ofType:(DescType)dataType
+				routingTable:(NSAppleEventDescriptor *)routingDesc
 {
 	NSAppleEventDescriptor  *event         = nil;
 	NSAppleEventDescriptor  *attribDesc    = nil;
 	NSAppleEventDescriptor  *reply         = nil;
 	
 	// create the apple event for getting attribute data
-	event = [NSAppleEventDescriptor appleEventWithEventClass:kAECoreSuite 
-																	 eventID:kAEGetData 
-														 targetDescriptor:[self driverAppleEventTarget]
-																	returnID:kAutoGenerateReturnID 
-															 transactionID:kAnyTransactionID];
+	event = [NSAppleEventDescriptor appleEventWithEventClass:kAECoreSuite
+							 eventID:kAEGetData
+						targetDescriptor:[self driverAppleEventTarget]
+							returnID:kAutoGenerateReturnID
+						   transactionID:kAnyTransactionID];
 	
 	// create descriptor for the attribute of interest
 	// the routingDesc is the container of the attribute
-	attribDesc = [NSAppleEventDescriptor descriptorForObjectOfType:formPropertyID 
-																			 withKey:[NSAppleEventDescriptor descriptorWithTypeCode:attribute]
-																			  ofForm:formPropertyID
-																				 from:routingDesc];
+	attribDesc = [NSAppleEventDescriptor descriptorForObjectOfType:formPropertyID
+							       withKey:[NSAppleEventDescriptor descriptorWithTypeCode:attribute]
+								ofForm:formPropertyID
+								  from:routingDesc];
 	
 	// add the attribute descriptor to the event
 	[event setDescriptor:attribDesc forKeyword:keyDirectObject];
 	
 	// indicate the data type of the attribute
 	[event setDescriptor:[NSAppleEventDescriptor descriptorWithTypeCode:dataType]
-				 forKeyword:keyAERequestedType];
+		  forKeyword:keyAERequestedType];
 	
 	// send the event and wait for reply
-	reply = [event sendExpectingReplyWithPriority:kAEHighPriority 
-												  andTimeout:kTabletDriverAETimeout];
+	reply = [event sendExpectingReplyWithPriority:kAEHighPriority
+					   andTimeout:kTabletDriverAETimeout];
 	
-	// return the data 
+	// return the data
 	return [reply descriptorForKeyword:keyDirectObject];
 	
 }//end dataForAttribute:ofType:routingTable:
@@ -210,32 +210,32 @@ COPYRIGHT
 //	Returns:		Number of the controls.
 //
 + (UInt32) controlCountOfContext:(UInt32)context 
-						forControlType:(eAETabletControlType)controlType
+		  forControlType:(eAETabletControlType)controlType
 {
 	NSAppleEventDescriptor  *event         = nil;
 	NSAppleEventDescriptor  *routingDesc   = nil;
 	NSAppleEventDescriptor  *response      = nil;
 	
 	// create the apple event for object count
-	event = [NSAppleEventDescriptor appleEventWithEventClass:kAECoreSuite 
-																	 eventID:kAECountElements 
-														 targetDescriptor:[self driverAppleEventTarget]
-																	returnID:kAutoGenerateReturnID 
-															 transactionID:kAnyTransactionID];
+	event = [NSAppleEventDescriptor appleEventWithEventClass:kAECoreSuite
+							 eventID:kAECountElements
+						targetDescriptor:[self driverAppleEventTarget]
+							returnID:kAutoGenerateReturnID
+						   transactionID:kAnyTransactionID];
 	
 	// set type of control object to be counted to the input control type
 	[event setDescriptor:[NSAppleEventDescriptor	descriptorWithTypeCode:[self descTypeFromControlType:controlType]]
-				 forKeyword:keyAEObjectClass];
+		  forKeyword:keyAEObjectClass];
 	
 	// create context descriptor corresponding to the tablet of interest
 	routingDesc = [self routingTableForContext:context];
 	
 	// add context descriptor to the event
 	[event setDescriptor:routingDesc forKeyword:keyDirectObject];
-
+	
 	// send the event
-	response = [event sendExpectingReplyWithPriority:kAEHighPriority 
-													  andTimeout:kTabletDriverAETimeout];
+	response = [event sendExpectingReplyWithPriority:kAEHighPriority
+					      andTimeout:kTabletDriverAETimeout];
 	
 	// extract the count from the reply and return it
 	return [[response descriptorForKeyword:keyDirectObject] int32Value];
@@ -257,37 +257,37 @@ COPYRIGHT
 //	Returns:		Number of the functions of the specified control.
 //
 + (UInt32) functionCountOfControl:(UInt32)control 
-								ofContext:(UInt32)context 
-						 forControlType:(eAETabletControlType)controlType
+			ofContext:(UInt32)context
+		   forControlType:(eAETabletControlType)controlType
 {
 	NSAppleEventDescriptor  *event         = nil;
 	NSAppleEventDescriptor	*routingDesc	= nil;
 	NSAppleEventDescriptor  *response      = nil;
 	
 	// create the apple event for object count
-	event = [NSAppleEventDescriptor appleEventWithEventClass:kAECoreSuite 
-																	 eventID:kAECountElements 
-														 targetDescriptor:[self driverAppleEventTarget]
-																	returnID:kAutoGenerateReturnID 
-															 transactionID:kAnyTransactionID];
+	event = [NSAppleEventDescriptor appleEventWithEventClass:kAECoreSuite
+							 eventID:kAECountElements
+						targetDescriptor:[self driverAppleEventTarget]
+							returnID:kAutoGenerateReturnID
+						   transactionID:kAnyTransactionID];
 	
 	// set type of object to be counted to control function
 	[event setDescriptor:[NSAppleEventDescriptor descriptorWithTypeCode:cWTDControlFunction]
-				 forKeyword:keyAEObjectClass];
+		  forKeyword:keyAEObjectClass];
 	
 	// create descriptor for the control and control type of interest
 	// contextDesc is the container
 	routingDesc = [self routingTableForContext:context
-												  control:control
-											 controlType:controlType];
+					   control:control
+				       controlType:controlType];
 	
 	// add the control descriptor to the event
 	[event setDescriptor:routingDesc forKeyword:keyDirectObject];
-
+	
 	// send the apple event
-	response = [event sendExpectingReplyWithPriority:kAEHighPriority 
-													  andTimeout:kTabletDriverAETimeout];
-						
+	response = [event sendExpectingReplyWithPriority:kAEHighPriority
+					      andTimeout:kTabletDriverAETimeout];
+	
 	// extract the count from the reply and return it
 	return [[response descriptorForKeyword:keyDirectObject] int32Value];
 }
@@ -310,22 +310,22 @@ COPYRIGHT
 	NSAppleEventDescriptor  *reply      = nil;
 	
 	// create the apple event for object count
-	event = [NSAppleEventDescriptor appleEventWithEventClass:kAECoreSuite 
-																	 eventID:kAECountElements 
-														 targetDescriptor:[self driverAppleEventTarget]
-																	returnID:kAutoGenerateReturnID 
-															 transactionID:kAnyTransactionID];
-						
+	event = [NSAppleEventDescriptor appleEventWithEventClass:kAECoreSuite
+							 eventID:kAECountElements
+						targetDescriptor:[self driverAppleEventTarget]
+							returnID:kAutoGenerateReturnID
+						   transactionID:kAnyTransactionID];
+	
 	// set object class to tablet to indicate that we want tablet count
 	[event setDescriptor:[NSAppleEventDescriptor	descriptorWithTypeCode:cWTDTablet]
-				 forKeyword:keyAEObjectClass];
-						
+		  forKeyword:keyAEObjectClass];
+	
 	[event setDescriptor:[self routingTableForDriver] forKeyword:keyDirectObject];
-
+	
 	// send the event
-	reply = [event sendExpectingReplyWithPriority:kAEHighPriority 
-												  andTimeout:kTabletDriverAETimeout];
-						
+	reply = [event sendExpectingReplyWithPriority:kAEHighPriority
+					   andTimeout:kTabletDriverAETimeout];
+	
 	// get the reply and return the count
 	return [[reply descriptorForKeyword:keyDirectObject] int32Value];
 }
@@ -347,15 +347,15 @@ COPYRIGHT
 	NSAppleEventDescriptor  *routingDesc = nil;
 	
 	// create the apple event for object count
-	event = [NSAppleEventDescriptor appleEventWithEventClass:kAECoreSuite 
-																	 eventID:kAECountElements 
-														 targetDescriptor:[self driverAppleEventTarget]
-																	returnID:kAutoGenerateReturnID 
-															 transactionID:kAnyTransactionID];
+	event = [NSAppleEventDescriptor appleEventWithEventClass:kAECoreSuite
+							 eventID:kAECountElements
+						targetDescriptor:[self driverAppleEventTarget]
+							returnID:kAutoGenerateReturnID
+						   transactionID:kAnyTransactionID];
 	
 	// set object class to tablet to indicate that we want tablet count
 	[event setDescriptor:[NSAppleEventDescriptor	descriptorWithTypeCode:cWTDTransducer]
-				 forKeyword:keyAEObjectClass];
+		  forKeyword:keyAEObjectClass];
 	
 	// create context descriptor corresponding to the tablet of interest
 	routingDesc = [self routingTableForTablet:tablet];
@@ -364,8 +364,8 @@ COPYRIGHT
 	[event setDescriptor:routingDesc forKeyword:keyDirectObject];
 	
 	// send the event
-	reply = [event sendExpectingReplyWithPriority:kAEHighPriority 
-												  andTimeout:kTabletDriverAETimeout];
+	reply = [event sendExpectingReplyWithPriority:kAEHighPriority
+					   andTimeout:kTabletDriverAETimeout];
 	
 	// get the reply and return the count
 	return [[reply descriptorForKeyword:keyDirectObject] int32Value];
@@ -397,53 +397,53 @@ COPYRIGHT
 //	Return:		YES if success or NO in case of error. 
 //
 + (BOOL) setBytes:(void*)bytes 
-			  ofSize:(UInt32)size 
-			  ofType:(DescType)dataType 
-	  forAttribute:(DescType)attribute 
-	  routingTable:(NSAppleEventDescriptor *)routingDesc
+	   ofSize:(UInt32)size
+	   ofType:(DescType)dataType
+     forAttribute:(DescType)attribute
+     routingTable:(NSAppleEventDescriptor *)routingDesc
 {
 	NSAppleEventDescriptor  *event         = nil;
 	NSAppleEventDescriptor  *attribDesc    = nil;
 	NSAppleEventDescriptor  *data          = nil;
-
+	
 	// create the apple event for setting data
-	event = [NSAppleEventDescriptor appleEventWithEventClass:kAECoreSuite 
-																	 eventID:kAESetData 
-														 targetDescriptor:[self driverAppleEventTarget]
-																	returnID:kAutoGenerateReturnID 
-															 transactionID:kAnyTransactionID];
-
+	event = [NSAppleEventDescriptor appleEventWithEventClass:kAECoreSuite
+							 eventID:kAESetData
+						targetDescriptor:[self driverAppleEventTarget]
+							returnID:kAutoGenerateReturnID
+						   transactionID:kAnyTransactionID];
+	
 	
 	//---------- Routing --------------------------------------------------------
 	
 	// Add the attribute descriptor to the routing table
-	attribDesc = [NSAppleEventDescriptor descriptorForObjectOfType:formPropertyID 
-																			 withKey:[NSAppleEventDescriptor descriptorWithTypeCode:attribute]
-																			  ofForm:formPropertyID
-																				 from:routingDesc];
+	attribDesc = [NSAppleEventDescriptor descriptorForObjectOfType:formPropertyID
+							       withKey:[NSAppleEventDescriptor descriptorWithTypeCode:attribute]
+								ofForm:formPropertyID
+								  from:routingDesc];
 	// add the whole thing to the event
 	[event setDescriptor:attribDesc
-				 forKeyword:keyDirectObject];
-
-
+		  forKeyword:keyDirectObject];
+	
+	
 	//---------- Data payload ---------------------------------------------------
 	
 	// Data type
 	[event setDescriptor:[NSAppleEventDescriptor descriptorWithTypeCode:dataType]
-				 forKeyword:keyAERequestedType];
+		  forKeyword:keyAERequestedType];
 	
 	// Data bytes descriptor
 	data = [NSAppleEventDescriptor descriptorWithDescriptorType:dataType
-																			bytes:bytes
-																		  length:size];
+							      bytes:bytes
+							     length:size];
 	[event setDescriptor:data
-				 forKeyword:keyAEData];
-
+		  forKeyword:keyAEData];
+	
 	// send the event
 	OSErr err = [event sendWithPriority:kAEHighPriority andTimeout:kTabletDriverAETimeout];
-
+	
 	return (err == noErr);
-
+	
 }//end setBytes:ofSize:ofType:forAttribute:routingTable:
 
 
@@ -471,9 +471,9 @@ COPYRIGHT
 //
 + (NSAppleEventDescriptor *)routingTableForDriver
 {
-	return [NSAppleEventDescriptor descriptorForObjectOfType:cWTDDriver 
-																	 withKey:[NSAppleEventDescriptor descriptorWithUInt32:1] // first and the only one
-																	  ofForm:formAbsolutePosition];
+	return [NSAppleEventDescriptor descriptorForObjectOfType:cWTDDriver
+							 withKey:[NSAppleEventDescriptor descriptorWithUInt32:1] // first and the only one
+							  ofForm:formAbsolutePosition];
 }
 
 
@@ -497,9 +497,9 @@ COPYRIGHT
 	NSAppleEventDescriptor  *tabletDesc = nil;
 	
 	// create descriptor for the tablet of interest
-	tabletDesc = [NSAppleEventDescriptor descriptorForObjectOfType:cWTDTablet 
-																			 withKey:[NSAppleEventDescriptor descriptorWithUInt32:tablet]
-																			  ofForm:formAbsolutePosition];
+	tabletDesc = [NSAppleEventDescriptor descriptorForObjectOfType:cWTDTablet
+							       withKey:[NSAppleEventDescriptor descriptorWithUInt32:tablet]
+								ofForm:formAbsolutePosition];
 	return tabletDesc;
 }
 
@@ -515,19 +515,19 @@ COPYRIGHT
 //					transducer	- transducer index, 1-relative
 //
 + (NSAppleEventDescriptor *) routingTableForTablet:(UInt32)tablet
-													 transducer:(UInt32)transducer 
+					transducer:(UInt32)transducer
 {
 	NSAppleEventDescriptor  *contextDesc   = nil;
 	NSAppleEventDescriptor  *controlDesc   = nil;
 	
 	// create context descriptor
 	contextDesc    = [self routingTableForTablet:tablet];
-						
+	
 	// create control descriptor whose container is contextDesc
 	controlDesc    = [NSAppleEventDescriptor descriptorForObjectOfType:cWTDTransducer
-																				  withKey:[NSAppleEventDescriptor descriptorWithUInt32:transducer]
-																					ofForm:formAbsolutePosition
-																					  from:contextDesc];
+								   withKey:[NSAppleEventDescriptor descriptorWithUInt32:transducer]
+								    ofForm:formAbsolutePosition
+								      from:contextDesc];
 	return controlDesc;
 	
 }//end routingTableForControl:ofContext:forControlType:
@@ -566,9 +566,9 @@ COPYRIGHT
 	NSAppleEventDescriptor  *contextDesc   = nil;
 	
 	// create context descriptor
-	contextDesc    = [NSAppleEventDescriptor descriptorForObjectOfType:cContext 
-																				  withKey:[NSAppleEventDescriptor descriptorWithUInt32:context]
-																					ofForm:formUniqueID];
+	contextDesc    = [NSAppleEventDescriptor descriptorForObjectOfType:cContext
+								   withKey:[NSAppleEventDescriptor descriptorWithUInt32:context]
+								    ofForm:formUniqueID];
 	
 	return contextDesc;
 	
@@ -583,21 +583,21 @@ COPYRIGHT
 //					control object in the driver. 
 //
 + (NSAppleEventDescriptor *) routingTableForContext:(UInt32)context
-														  control:(UInt32)control 
-													 controlType:(eAETabletControlType)controlType
+					    control:(UInt32)control
+					controlType:(eAETabletControlType)controlType
 {
 	NSAppleEventDescriptor  *contextDesc   = nil;
 	NSAppleEventDescriptor  *controlDesc   = nil;
 	
 	// create context descriptor
 	contextDesc    = [self routingTableForContext:context];
-						
+	
 	// create control descriptor whose container is contextDesc
 	controlDesc    = [NSAppleEventDescriptor descriptorForObjectOfType:[self descTypeFromControlType:controlType]
-																				  withKey:[NSAppleEventDescriptor descriptorWithUInt32:control]
-																					ofForm:formAbsolutePosition
-																					  from:contextDesc];
-
+								   withKey:[NSAppleEventDescriptor descriptorWithUInt32:control]
+								    ofForm:formAbsolutePosition
+								      from:contextDesc];
+	
 	return controlDesc;
 	
 }//end routingTableForControl:ofContext:forControlType:
@@ -611,22 +611,22 @@ COPYRIGHT
 //					a tablet control object in the driver. 
 //
 + (NSAppleEventDescriptor *) routingTableForContext:(UInt32)context 
-														  control:(UInt32)control 
-													 controlType:(eAETabletControlType)controlType
-														 function:(UInt32)function 
+					    control:(UInt32)control
+					controlType:(eAETabletControlType)controlType
+					   function:(UInt32)function
 {
 	NSAppleEventDescriptor  *controlDesc   = nil;
 	NSAppleEventDescriptor  *functionDesc  = nil;
 	
 	// create control descriptor whose container is contextDesc
 	controlDesc    = [self routingTableForContext:context
-													  control:control
-												 controlType:controlType];
-
+					      control:control
+					  controlType:controlType];
+	
 	functionDesc   = [NSAppleEventDescriptor descriptorForObjectOfType:cWTDControlFunction
-																				  withKey:[NSAppleEventDescriptor descriptorWithUInt32:function]
-																					ofForm:formAbsolutePosition
-																					  from:controlDesc];
+								   withKey:[NSAppleEventDescriptor descriptorWithUInt32:function]
+								    ofForm:formAbsolutePosition
+								      from:controlDesc];
 	return functionDesc;
 	
 }//end routingTableForFunction:ofControl:ofContext:forControlType:
@@ -651,8 +651,8 @@ COPYRIGHT
 	OSType tdSig = kWacomDriverSig; // this is the tablet driver's AppleEvent signature
 	
 	return [NSAppleEventDescriptor descriptorWithDescriptorType:typeApplSignature
-																			bytes:&tdSig 
-																		  length:sizeof(tdSig)];
+							      bytes:&tdSig
+							     length:sizeof(tdSig)];
 }
 
 
@@ -678,7 +678,7 @@ COPYRIGHT
 	{
 		return cWTDExpressKey;
 	}
-	return cWTDTouchRing;						
+	return cWTDTouchRing;
 }
 
 
@@ -696,19 +696,19 @@ COPYRIGHT
 	NSAppleEventDescriptor  *reply      = nil;
 	
 	// create the apple event for object count
-	event = [NSAppleEventDescriptor appleEventWithEventClass:kAEWacomSuite 
-																	 eventID:eSendTabletEvent 
-														 targetDescriptor:[self driverAppleEventTarget]
-																	returnID:kAutoGenerateReturnID 
-															 transactionID:kAnyTransactionID];
-						
+	event = [NSAppleEventDescriptor appleEventWithEventClass:kAEWacomSuite
+							 eventID:eSendTabletEvent
+						targetDescriptor:[self driverAppleEventTarget]
+							returnID:kAutoGenerateReturnID
+						   transactionID:kAnyTransactionID];
+	
 	// set object class to tablet to indicate that we want tablet count
 	[event setDescriptor:[NSAppleEventDescriptor	descriptorWithEnumCode:tabletEventType]
-				 forKeyword:keyAEData];
-
+		  forKeyword:keyAEData];
+	
 	// send the event
 	reply = [event sendExpectingReplyWithPriority:kAEHighPriority
-												  andTimeout:kTabletDriverAETimeout];
+					   andTimeout:kTabletDriverAETimeout];
 }
 
 
