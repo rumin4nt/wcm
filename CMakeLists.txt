@@ -51,7 +51,7 @@ if(${OperatingSystem} MATCHES "macos")
 endif()
 
 if(${OperatingSystem} MATCHES "linux")
-	file(GLOB sources src/*.c src/platform/common/*.c )
+	file(GLOB sources src/*.c )
 endif()
 
 
