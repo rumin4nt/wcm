@@ -41,7 +41,7 @@ endif()
 set(build_demo YES)
 
 if(${OperatingSystem} MATCHES "macos")
-	file(GLOB sources src/*.c src/*.m contrib/wacom/macos/*.m)
+	file(GLOB sources src/wcm.c src/*.m)
 	FIND_LIBRARY(COCOA_LIB Cocoa)
 	FIND_LIBRARY(OPENGL_LIB OpenGL)
 	FIND_LIBRARY(CARBON_LIB Carbon)
@@ -50,8 +50,12 @@ if(${OperatingSystem} MATCHES "macos")
 
 endif()
 
+if(${OperatingSystem} MATCHES "windows")
+	file(GLOB sources src/wcm.c src/wcm_tablet_ez.c src/wcm_tablet_ez_windows.c)
+endif()
+
 if(${OperatingSystem} MATCHES "linux")
-	file(GLOB sources src/*.c src/platform/common/*.c )
+	file(GLOB sources src/wcm.c src/wcm_tablet_ez.c src/*linux*.c src/*x11*.c)
 endif()
 
 
