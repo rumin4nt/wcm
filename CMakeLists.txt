@@ -40,6 +40,7 @@ endif()
 
 set(build_demo YES)
 
+
 if(${OperatingSystem} MATCHES "macos")
 	file(GLOB sources src/wcm.c src/*.m)
 	FIND_LIBRARY(COCOA_LIB Cocoa)
@@ -50,9 +51,11 @@ if(${OperatingSystem} MATCHES "macos")
 
 endif()
 
+
 if(${OperatingSystem} MATCHES "windows")
 	file(GLOB sources src/wcm.c src/wcm_tablet_ez.c src/wcm_tablet_ez_windows.c)
 endif()
+
 
 if(${OperatingSystem} MATCHES "linux")
 	file(GLOB sources src/wcm.c src/wcm_tablet_ez.c src/*linux*.c src/*x11*.c)
@@ -63,6 +66,7 @@ if(${OperatingSystem} MATCHES "macos")
 	add_library(wcm STATIC ${sources} ${FOUNDATION_LIB})
 	target_link_libraries(wcm LINK_PUBLIC ${COCOA_LIB} ${CARBON_LIB} ${CV_LIB} ${OPENGL_LIB})
 endif()
+
 
 if(build_demo)
 	add_subdirectory(demo)
