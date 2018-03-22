@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5704FC0A2064464D0055A589 /* primitives.c in Sources */ = {isa = PBXBuildFile; fileRef = 5704FC092064464D0055A589 /* primitives.c */; };
 		57AAD8E52062E29E00136719 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 57AAD8E42062E29E00136719 /* main.c */; };
 		57AAD8F12062E2E400136719 /* libwcm.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 57AAD8EB2062E2C900136719 /* libwcm.a */; };
 		57AAD8F32062E3EF00136719 /* libglfw.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 57AAD8F22062E3EE00136719 /* libglfw.dylib */; };
@@ -42,6 +43,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5704FC082064464D0055A589 /* primitives.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = primitives.h; sourceTree = "<group>"; };
+		5704FC092064464D0055A589 /* primitives.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = primitives.c; sourceTree = "<group>"; };
 		57AAD8D82062E27600136719 /* wcm_demo */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = wcm_demo; sourceTree = BUILT_PRODUCTS_DIR; };
 		57AAD8E42062E29E00136719 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		57AAD8E62062E2C900136719 /* wcm.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = wcm.xcodeproj; path = ../../work/wcm.xcodeproj; sourceTree = "<group>"; };
@@ -83,6 +86,8 @@
 		57AAD8E32062E29E00136719 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				5704FC092064464D0055A589 /* primitives.c */,
+				5704FC082064464D0055A589 /* primitives.h */,
 				57AAD8E42062E29E00136719 /* main.c */,
 			);
 			name = src;
@@ -179,6 +184,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				57AAD8E52062E29E00136719 /* main.c in Sources */,
+				5704FC0A2064464D0055A589 /* primitives.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

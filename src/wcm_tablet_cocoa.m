@@ -93,7 +93,7 @@ void process_event(NSEvent* theEvent)
 	
 	// Find tablet point events (both pure and embedded)
 	if (eventType == NSEventTypeTabletPoint || (isMouseEvent == YES && [theEvent subtype] == NSEventSubtypeTabletPoint)) 	{
-		printf("yass\n");
+		//printf("yass\n");
 		isTabletPointEvent = true;
 	}
 	
@@ -159,7 +159,7 @@ void process_event(NSEvent* theEvent)
 		//printf("right!\n");
 	}
 	if (eventType == NSEventTypeOtherMouseDragged || eventType == NSEventTypeOtherMouseDown || eventType == NSEventTypeOtherMouseUp) {
-		button = 7;
+		button = 2;
 		//printf("OTHER!\n");
 	}
 	
@@ -197,8 +197,12 @@ void process_event(NSEvent* theEvent)
 	}
 	
 	//	x y pressure rotation tilt_x tilt_y tangential button_mask
-	double x, y, pressure, rotation, tilt_x, tilt_y, tangential;
-	x = y = pressure = rotation = tilt_x = tilt_y = tangential = -1;
+	
+	//	some conflict here, never knew what "tangential" was, should we ditch it or expand one more to allow al / az?
+	
+	double x, y, pressure, rotation, tilt_x, tilt_y, altitude, azimuth, tangential;
+	x = y = pressure = rotation = tilt_x = tilt_y = altitude = azimuth = tangential = -1;
+	
 	if ( event_type == R_TABLET_DOWN || event_type == R_TABLET_DRAG || event_type == R_TABLET_UP )
 	{
 		
@@ -208,6 +212,9 @@ void process_event(NSEvent* theEvent)
 		tilt_x       = tilt.x;
 		tilt_y       = tilt.y;
 		tangential   = [theEvent tangentialPressure];
+		//apple pencil fields
+		altitude = -1;
+		azimuth = -1;
 	}
 	NSPoint loc = [theEvent locationInWindow];
 	
@@ -239,7 +246,7 @@ void process_event(NSEvent* theEvent)
 			//[NSEvent setMouseCoalescingEnabled:false];
 			//app_extensions.coalescing_events = false;
 			//wcm_recv_tablet_motion
-			wcm_recv_tablet_down(x, y, button, pressure, rotation, tilt_x, tilt_y, tangential);
+			wcm_recv_tablet_down(x, y, button, pressure, rotation, tilt_x, tilt_y, tangential, altitude, azimuth );
 			//b_receive_tablet_down_rich(x, y, button, pressure, rotation, tilt_x, tilt_y, tangential);
 			//b_receive_tablet_proximity(true);
 			
@@ -249,18 +256,17 @@ void process_event(NSEvent* theEvent)
 			
 			//app_extensions.coalescing_events = true;
 			//[NSEvent setMouseCoalescingEnabled:true];
-			wcm_recv_tablet_up(x, y, button, pressure, rotation, tilt_x, tilt_y, tangential);
+			wcm_recv_tablet_up(x, y, button, pressure, rotation, tilt_x, tilt_y,  tangential, altitude, azimuth );
 			
 			break;
 		case R_TABLET_MOTION:
 			//printf("m");
-			wcm_recv_tablet_motion(x, y, button, pressure, rotation, tilt_x, tilt_y, tangential);
+			wcm_recv_tablet_motion(x, y, button, pressure, rotation, tilt_x, tilt_y, tangential, altitude, azimuth);
 			
 			break;
 		case R_TABLET_DRAG:
 			wcm_recv_tablet_proximity(true);
-			wcm_recv_tablet_drag(x, y, button, pressure, rotation, tilt_x, tilt_y, tangential);
-			
+			wcm_recv_tablet_drag(x, y, button, pressure, rotation, tilt_x, tilt_y, tangential, altitude, azimuth );
 			//b_receive_tablet_drag(x,y);
 			break;
 		default:

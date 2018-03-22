@@ -59,3 +59,4 @@ docs/
 
 .DS_Store
 *.sublime-workspace
+*debugger*
