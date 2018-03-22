@@ -9,11 +9,11 @@
 #ifndef wcm_h
 #define wcm_h
 
-typedef void (*tablet_motion_func)(double x, double y, int button, double p, double r, double tx, double ty,double tangential,  double altitude, double azimuth);
+typedef void (*tablet_motion_func)(double x, double y, int button, double p, double r, double tx, double ty, double tangential, double altitude, double azimuth);
 
 //	possible values: x y pressure rotation tiltx tilty altitude azimuth?
 typedef void (*tablet_down_func)(double x, double y, int button, double p, double r, double tx, double ty, double tangential, double altitude, double azimuth);
-typedef void (*tablet_up_func)(double x, double y, int button, double p, double r, double tx, double ty,double tangential,  double altitude, double azimuth);
+typedef void (*tablet_up_func)(double x, double y, int button, double p, double r, double tx, double ty, double tangential, double altitude, double azimuth);
 typedef void (*tablet_drag_func)(double x, double y, int button, double p, double r, double tx, double ty, double tangential, double altitude, double azimuth);
 typedef void (*tablet_proximity_func)(int v);
 
@@ -35,6 +35,10 @@ void wcm_recv_tablet_drag(double x, double y, int button, double p, double r, do
 void wcm_recv_tablet_down(double x, double y, int button, double p, double r, double tx, double ty, double tangential, double altitude, double azimuth);
 void wcm_recv_tablet_up(double x, double y, int button, double p, double r, double tx, double ty, double tangential, double altitude, double azimuth);
 
-//	todo: get fancy with buttons?  idk
+#ifdef __APPLE__
+void wcm_set_event_coalescing(int val);
+#endif
+
+//	todo: implement buttons?  NAH haha
 
 #endif /* wcm_h */

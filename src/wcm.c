@@ -106,15 +106,20 @@ void wcm_recv_tablet_motion(double x, double y, int b, double p, double r, doubl
 {
 	if (tmotion)
 	{
-		tmotion(x, y, b, p, r, tx, ty,tangential, altitude, azimuth);
+		tmotion(x, y, b, p, r, tx, ty, tangential, altitude, azimuth);
+	}
+	else
+	{
+
+		printf("no motion cn\n");
 	}
 }
 
-void wcm_recv_tablet_drag(double x, double y, int b, double p, double r, double tx, double ty,double tangential,  double altitude, double azimuth)
+void wcm_recv_tablet_drag(double x, double y, int b, double p, double r, double tx, double ty, double tangential, double altitude, double azimuth)
 {
 	if (tdrag)
 	{
-		tdrag(x, y, b, p, r, tx, ty, tangential,altitude, azimuth);
+		tdrag(x, y, b, p, r, tx, ty, tangential, altitude, azimuth);
 	}
 }
 
@@ -122,7 +127,7 @@ void wcm_recv_tablet_down(double x, double y, int b, double p, double r, double 
 {
 	if (tdown)
 	{
-		tdown(x, y, b, p, r, tx, ty,tangential, altitude, azimuth);
+		tdown(x, y, b, p, r, tx, ty, tangential, altitude, azimuth);
 	}
 }
 
@@ -130,6 +135,6 @@ void wcm_recv_tablet_up(double x, double y, int b, double p, double r, double tx
 {
 	if (tup)
 	{
-		tup(x, y, b, p, r, tx, ty, tangential,altitude, azimuth);
+		tup(x, y, b, p, r, tx, ty, tangential, altitude, azimuth);
 	}
 }
