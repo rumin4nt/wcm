@@ -10,6 +10,9 @@
 
 #ifdef __linux__
 
+#define EASYTAB_IMPLEMENTATION
+#include "../contrib/easytab/easytab.h"
+
 Display* Disp;
 Window   Win;
 
