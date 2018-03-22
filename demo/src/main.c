@@ -53,7 +53,7 @@ static void mouse_button_callback(GLFWwindow* window, int button, int action,
 				  int mods)
 {
 	static int once = 0;
-	if ( once == 0 )
+	if (once == 0)
 	{
 		once = 1;
 		wcm_init(window_w, window_h);
