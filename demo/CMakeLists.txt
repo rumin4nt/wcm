@@ -1,10 +1,10 @@
 cmake_minimum_required (VERSION 3.0)
 
-project(demo_wash)
+project(wcm_demo)
 
-set (demo_wash_VERSION_MAJOR 0)
-set (demo_wash_VERSION_MINOR 0)
-set (demo_wash_VERSION_PATCH 1)
+set (wcm_demo_VERSION_MAJOR 0)
+set (wcm_demo_VERSION_MINOR 0)
+set (wcm_demo_VERSION_PATCH 1)
 
 
 IF(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
@@ -89,6 +89,8 @@ if(${OperatingSystem} MATCHES "macos")
 
 endif(${OperatingSystem} MATCHES "macos")
 
+# add_subdirectory(contrib/wcm)
+
 
 find_package(OpenGL)
 if (OPENGL_FOUND)
@@ -102,16 +104,16 @@ file(GLOB sources src/*.c src/demos/*.c ${CMAKE_CURRENT_SOURCE_DIR}/../cjson/cJS
 
 message(${sources})
 
-add_executable(demo_wash ${sources})
+add_executable(wcm_demo ${sources})
 
 
-target_include_directories (demo_wash PUBLIC ${CMAKE_SOURCE_DIR}/src)
-target_include_directories (demo_wash PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../../../libs)
-target_include_directories (demo_wash PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../../../contrib/include)
-target_include_directories (demo_wash PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../../../contrib)
+target_include_directories (wcm_demo PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../src)
+target_include_directories (wcm_demo PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../../../libs)
+target_include_directories (wcm_demo PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../../../contrib/include)
+target_include_directories (wcm_demo PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../../../contrib)
 
 if(${OperatingSystem} MATCHES "macos")
-	target_link_libraries(demo_wash LINK_PUBLIC wcm glfw
+	target_link_libraries(wcm_demo LINK_PUBLIC wcm glfw
 	${GL_LIB}
 	${COCOA_LIBRARY}
 	${IO_LIB}

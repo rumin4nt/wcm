@@ -56,7 +56,7 @@ endif()
 
 
 if(${OperatingSystem} MATCHES "macos")
-	add_library(wcm SHARED ${sources} ${FOUNDATION_LIB})
+	add_library(wcm STATIC ${sources} ${FOUNDATION_LIB})
 	target_link_libraries(wcm LINK_PUBLIC ${COCOA_LIB} ${CARBON_LIB} ${CV_LIB} ${OPENGL_LIB})
 endif()
 
