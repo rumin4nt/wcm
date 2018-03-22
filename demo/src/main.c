@@ -149,24 +149,24 @@ void my_tablet_prox(int v)
 
 void my_tablet_motion(double x, double y, int b, double p, double r, double tx, double ty, double tangential, double altitude, double azimuth)
 {
-	printf("got rich motion?%f %f %d %f %f %f %f %f \n", x, y, b, p, r, tx, ty);
+	printf("got rich motion?  %f %f %d %f %f %f %f %f %f %f\n", x, y, b, p, r, tx, ty, tangential, altitude, azimuth);
 }
 
 void my_tablet_drag(double x, double y, int b, double p, double r, double tx, double ty, double tangential, double altitude, double azimuth)
 {
-	printf("got rich drag? %f %f %d %f %f %f %f %f \n", x, y, b, p, r, tx, ty);
+	printf("got rich drag?  %f %f %d %f %f %f %f %f %f %f\n", x, y, b, p, r, tx, ty, tangential, altitude, azimuth);
 	display_radius = p * 32 * dpi;
 }
 
 void my_tablet_up(double x, double y, int b, double p, double r, double tx, double ty, double tangential, double altitude, double azimuth)
 {
-	printf("got rich up? %f %f %d %f %f %f %f %f \n", x, y, b, p, r, tx, ty);
+	printf("got rich up?  %f %f %d %f %f %f %f %f %f %f\n", x, y, b, p, r, tx, ty, tangential, altitude, azimuth);
 	display_radius = p * 32 * dpi;
 }
 
 void my_tablet_down(double x, double y, int b, double p, double r, double tx, double ty, double tangential, double altitude, double azimuth)
 {
-	printf("got rich down? %f %f %d %f %f %f %f %f \n", x, y, b, p, r, tx, ty, tangential, altitude, azimuth);
+	printf("got rich down? %f %f %d %f %f %f %f %f %f %f\n", x, y, b, p, r, tx, ty, tangential, altitude, azimuth);
 	display_radius = p * 32 * dpi;
 }
 
