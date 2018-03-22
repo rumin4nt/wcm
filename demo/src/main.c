@@ -22,6 +22,8 @@ GLFWwindow* window = NULL;
 
 static int window_w = WIDTH;
 static int window_h = HEIGHT;
+static double mouse_x = 0;
+static double mouse_y = 0;
 
 static void joystick_callback(int joy, int event)
 {
@@ -66,6 +68,8 @@ static void cursor_enter_callback(GLFWwindow* window, int entered)
 
 static void cursor_position_callback(GLFWwindow* window, double xpos, double ypos)
 {
+	mouse_x = xpos;
+	mouse_y = ypos;
 }
 
 static void key_callback(GLFWwindow* window, int key, int scan, int action, int mods)
@@ -95,11 +99,7 @@ static void setup_callbacks()
 	glfwSetDropCallback(window, drop_callback);
 }
 
-static void draw(void)
-{
-	glClear(GL_COLOR_BUFFER_BIT);
-	glClearColor(1, 1, 1, 1);
-}
+#pragma mark callbacks
 
 void my_tablet_prox(int v)
 {
@@ -124,6 +124,18 @@ void my_tablet_up(double x, double y, double p, double r, double tx, double ty, 
 void my_tablet_down(double x, double y, double p, double r, double tx, double ty, double altitude, double azimuth)
 {
 	printf("got rich down? %f %f %f %f %f %f\n", x, y, p, r, tx, ty);
+}
+
+#pragma mark main
+
+static void draw(void)
+{
+	glClear(GL_COLOR_BUFFER_BIT);
+	
+	glBegin(GL_LINES);
+	glVertex2f(window_w * .5, window_h * .5);
+	glVertex2f(mouse_x, mouse_y);
+	glEnd();
 }
 
 int main(int argc, const char* argv[])
@@ -154,6 +166,9 @@ int main(int argc, const char* argv[])
 
 	//wcm_init(window_w, window_h);
 
+	glClearColor(1, 1, 1, 1);
+	glColor4f(0,0,0,1);
+	
 	/* Loop until the user closes the window */
 	while (!glfwWindowShouldClose(window))
 	{

@@ -35,6 +35,10 @@ void wcm_recv_tablet_drag(double x, double y, double p, double r, double tx, dou
 void wcm_recv_tablet_down(double x, double y, double p, double r, double tx, double ty, double altitude, double azimuth);
 void wcm_recv_tablet_up(double x, double y, double p, double r, double tx, double ty, double altitude, double azimuth);
 
-//	todo: get fancy with buttons?  idk
+#ifdef __APPLE__
+	void wcm_set_event_coalescing(int val);
+#endif
+
+//	todo: implement buttons?  NAH haha
 
 #endif /* wcm_h */

@@ -77,7 +77,7 @@ void wcm_set_scaling_factor(double scale_factor)
 
 void wcm_set_tablet_motion_func(tablet_motion_func fn)
 {
-	tdown = fn;
+	tmotion = fn;
 }
 void wcm_set_tablet_down_func(tablet_down_func fn)
 {
@@ -89,7 +89,7 @@ void wcm_set_tablet_up_func(tablet_up_func fn)
 }
 void wcm_set_tablet_drag_func(tablet_drag_func fn)
 {
-	tmotion = fn;
+	tdrag = fn;
 }
 void wcm_set_tablet_proximity_func(tablet_proximity_func fn)
 {
@@ -109,6 +109,9 @@ void wcm_recv_tablet_motion(double x, double y, double p, double r, double tx, d
 	if (tmotion)
 	{
 		tmotion(x, y, p, r, tx, ty, altitude, azimuth);
+	}else{
+		
+		printf("no motion cn\n");
 	}
 }
 

@@ -93,7 +93,7 @@ void process_event(NSEvent* theEvent)
 	
 	// Find tablet point events (both pure and embedded)
 	if (eventType == NSEventTypeTabletPoint || (isMouseEvent == YES && [theEvent subtype] == NSEventSubtypeTabletPoint)) 	{
-		printf("yass\n");
+		//printf("yass\n");
 		isTabletPointEvent = true;
 	}
 	
@@ -106,7 +106,9 @@ void process_event(NSEvent* theEvent)
 	 */
 	if (eventType == NSEventTypeTabletPoint) {
 		isTabletPointEvent = YES;
+#ifdef DEBUG
 		printf("POINT\n");
+#endif
 		//cout << "p-";
 	}
 	/*
@@ -143,7 +145,7 @@ void process_event(NSEvent* theEvent)
 	//return;
 	//}
 	
-	//	this is horrible but fuckit moving on
+	//	this is horrible but meh moving on
 	int button     = -7;
 	int event_type = -7;
 	
@@ -169,29 +171,24 @@ void process_event(NSEvent* theEvent)
 		//event_type = REDTA_motion;
 	} else if (eventType == NSLeftMouseDragged ||eventType == NSEventTypeLeftMouseDragged || eventType == NSEventTypeRightMouseDragged || eventType == NSEventTypeOtherMouseDragged) {
 		event_type = R_TABLET_DRAG;
-		//printf("drag!\n");
-		
-		//event_type = REDTA_drag;
+
 	} else if (eventType == NSEventTypeLeftMouseDown || eventType == NSEventTypeRightMouseDown || eventType == NSEventTypeOtherMouseDown) {
-		//event_type = REDTA_down;
-		//printf("down!\n");
-		
+
 		event_type = R_TABLET_DOWN;
 	} else if (eventType == NSEventTypeLeftMouseUp || eventType == NSEventTypeRightMouseUp || eventType == NSEventTypeOtherMouseUp) {
 		event_type = R_TABLET_UP;
-		//printf("up!\n");
-		
-		//event_type = REDTA_up;
+
 	} else if ( isTabletProximityEvent )
 	{
 		event_type = R_TABLET_PROXIMITY;
 		
 	}else{
-		//printf("ugh!\n");
-		// do we discard NSEventTypeTabletPoint since it seems to be teh suck?
+		// do we discard NSEventTypeTabletPoint since it seems to be teh hot garbage?
 		static bool event_discard_suppress = false;
 		if (!event_discard_suppress) {
-			printf("Unhandled event type.\n");
+#ifdef DEBUG
+	printf("Unhandled event type.\n");
+#endif
 			event_discard_suppress = true;
 		}
 	}
@@ -225,7 +222,7 @@ void process_event(NSEvent* theEvent)
 	
 	//	NSView
 	//	fsc;
-	//	OK DO WE FUCKING HAVE EVERYTHING?
+	//	OK DO WE HAVE EVERYTHING?
 	//	I think this is safe.  We'd NEVER be here if this was a mouse event, soooo
 	//double w = app_settings.framebuffer_height;
 	
@@ -234,7 +231,7 @@ void process_event(NSEvent* theEvent)
 			wcm_recv_tablet_proximity(true);
 			break;
 		case R_TABLET_DOWN:
-			printf("d");
+			//printf("d");
 			
 			//[NSEvent setMouseCoalescingEnabled:false];
 			//app_extensions.coalescing_events = false;
@@ -245,7 +242,7 @@ void process_event(NSEvent* theEvent)
 			
 			break;
 		case R_TABLET_UP:
-			printf("u");
+			//printf("u");
 			
 			//app_extensions.coalescing_events = true;
 			//[NSEvent setMouseCoalescingEnabled:true];
@@ -264,7 +261,7 @@ void process_event(NSEvent* theEvent)
 			//b_receive_tablet_drag(x,y);
 			break;
 		default:
-			printf("error!\n");
+			//printf("error!\n");
 			break;
 	}
 	
