@@ -8,13 +8,10 @@
 
 #include "wcm_tablet_pencil.h"
 
-
 void wcm_tablet_pencil_init(void)
 {
-	
 }
 
 void wcm_tablet_pencil_deinit(void)
 {
-	
 }

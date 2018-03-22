@@ -9,7 +9,7 @@
 #ifndef wcm_tablet_x11_h
 #define wcm_tablet_x11_h
 
-int wcm_tablet_x11_init(void);
+int  wcm_tablet_x11_init(void);
 void wcm_tablet_x11_deinit(void);
 
 #endif /* wcm_tablet_x11_h */

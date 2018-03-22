@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5704FC1B20645B050055A589 /* NSAppleEventDescriptorHelperCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5704FC1120645B050055A589 /* NSAppleEventDescriptorHelperCategory.m */; };
+		5704FC1C20645B050055A589 /* TabletAEDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 5704FC1220645B050055A589 /* TabletAEDictionary.h */; };
+		5704FC1D20645B050055A589 /* WacomTabletDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = 5704FC1320645B050055A589 /* WacomTabletDriver.m */; };
+		5704FC1E20645B050055A589 /* NSAppleEventDescriptorHelperCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = 5704FC1420645B050055A589 /* NSAppleEventDescriptorHelperCategory.h */; };
+		5704FC1F20645B050055A589 /* WacomTabletDriver.h in Headers */ = {isa = PBXBuildFile; fileRef = 5704FC1520645B050055A589 /* WacomTabletDriver.h */; };
+		5704FC2020645B050055A589 /* wintab.h in Headers */ = {isa = PBXBuildFile; fileRef = 5704FC1720645B050055A589 /* wintab.h */; };
+		5704FC2120645B050055A589 /* easytab.h in Headers */ = {isa = PBXBuildFile; fileRef = 5704FC1A20645B050055A589 /* easytab.h */; };
+		5704FC2420645C3C0055A589 /* wcm_tablet_ez_windows.h in Headers */ = {isa = PBXBuildFile; fileRef = 5704FC2220645C3C0055A589 /* wcm_tablet_ez_windows.h */; };
+		5704FC2520645C3C0055A589 /* wcm_tablet_ez_windows.c in Sources */ = {isa = PBXBuildFile; fileRef = 5704FC2320645C3C0055A589 /* wcm_tablet_ez_windows.c */; };
+		5704FC2820645C480055A589 /* wcm_tablet_ez_linux.h in Headers */ = {isa = PBXBuildFile; fileRef = 5704FC2620645C480055A589 /* wcm_tablet_ez_linux.h */; };
+		5704FC2920645C480055A589 /* wcm_tablet_ez_linux.c in Sources */ = {isa = PBXBuildFile; fileRef = 5704FC2720645C480055A589 /* wcm_tablet_ez_linux.c */; };
 		5760ECCD2062DD4200430B0A /* wcm.c in Sources */ = {isa = PBXBuildFile; fileRef = 5760ECCB2062DD4200430B0A /* wcm.c */; };
 		5760ECCE2062DD4200430B0A /* wcm.h in Headers */ = {isa = PBXBuildFile; fileRef = 5760ECCC2062DD4200430B0A /* wcm.h */; };
 		5760ECE120630DB600430B0A /* wcm_tablet_pencil.h in Headers */ = {isa = PBXBuildFile; fileRef = 5760ECDF20630DB600430B0A /* wcm_tablet_pencil.h */; };
@@ -25,6 +36,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5704FC1120645B050055A589 /* NSAppleEventDescriptorHelperCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSAppleEventDescriptorHelperCategory.m; sourceTree = "<group>"; };
+		5704FC1220645B050055A589 /* TabletAEDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabletAEDictionary.h; sourceTree = "<group>"; };
+		5704FC1320645B050055A589 /* WacomTabletDriver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WacomTabletDriver.m; sourceTree = "<group>"; };
+		5704FC1420645B050055A589 /* NSAppleEventDescriptorHelperCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSAppleEventDescriptorHelperCategory.h; sourceTree = "<group>"; };
+		5704FC1520645B050055A589 /* WacomTabletDriver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WacomTabletDriver.h; sourceTree = "<group>"; };
+		5704FC1720645B050055A589 /* wintab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wintab.h; sourceTree = "<group>"; };
+		5704FC1920645B050055A589 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		5704FC1A20645B050055A589 /* easytab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = easytab.h; sourceTree = "<group>"; };
+		5704FC2220645C3C0055A589 /* wcm_tablet_ez_windows.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wcm_tablet_ez_windows.h; sourceTree = "<group>"; };
+		5704FC2320645C3C0055A589 /* wcm_tablet_ez_windows.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = wcm_tablet_ez_windows.c; sourceTree = "<group>"; };
+		5704FC2620645C480055A589 /* wcm_tablet_ez_linux.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wcm_tablet_ez_linux.h; sourceTree = "<group>"; };
+		5704FC2720645C480055A589 /* wcm_tablet_ez_linux.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = wcm_tablet_ez_linux.c; sourceTree = "<group>"; };
 		5760ECAF2062D68C00430B0A /* libwcm.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libwcm.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5760ECCB2062DD4200430B0A /* wcm.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = wcm.c; sourceTree = "<group>"; };
 		5760ECCC2062DD4200430B0A /* wcm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wcm.h; sourceTree = "<group>"; };
@@ -54,9 +77,58 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5704FC0E20645B050055A589 /* contrib */ = {
+			isa = PBXGroup;
+			children = (
+				5704FC0F20645B050055A589 /* wacom */,
+				5704FC1820645B050055A589 /* easytab */,
+			);
+			name = contrib;
+			path = ../../r4/libs/wsh/demo/contrib/wcm/contrib;
+			sourceTree = "<group>";
+		};
+		5704FC0F20645B050055A589 /* wacom */ = {
+			isa = PBXGroup;
+			children = (
+				5704FC1020645B050055A589 /* macos */,
+				5704FC1620645B050055A589 /* windows */,
+			);
+			path = wacom;
+			sourceTree = "<group>";
+		};
+		5704FC1020645B050055A589 /* macos */ = {
+			isa = PBXGroup;
+			children = (
+				5704FC1120645B050055A589 /* NSAppleEventDescriptorHelperCategory.m */,
+				5704FC1220645B050055A589 /* TabletAEDictionary.h */,
+				5704FC1320645B050055A589 /* WacomTabletDriver.m */,
+				5704FC1420645B050055A589 /* NSAppleEventDescriptorHelperCategory.h */,
+				5704FC1520645B050055A589 /* WacomTabletDriver.h */,
+			);
+			path = macos;
+			sourceTree = "<group>";
+		};
+		5704FC1620645B050055A589 /* windows */ = {
+			isa = PBXGroup;
+			children = (
+				5704FC1720645B050055A589 /* wintab.h */,
+			);
+			path = windows;
+			sourceTree = "<group>";
+		};
+		5704FC1820645B050055A589 /* easytab */ = {
+			isa = PBXGroup;
+			children = (
+				5704FC1920645B050055A589 /* README.md */,
+				5704FC1A20645B050055A589 /* easytab.h */,
+			);
+			path = easytab;
+			sourceTree = "<group>";
+		};
 		5760ECA62062D68C00430B0A = {
 			isa = PBXGroup;
 			children = (
+				5704FC0E20645B050055A589 /* contrib */,
 				57AAD90A2063073B00136719 /* macos */,
 				5760ECB72062D7F300430B0A /* src */,
 				5760ECB02062D68C00430B0A /* Products */,
@@ -78,6 +150,10 @@
 				5760ECE020630DB600430B0A /* wcm_tablet_pencil.m */,
 				57AAD901206306E500136719 /* wcm_tablet_cocoa.h */,
 				57AAD8FE206306E500136719 /* wcm_tablet_cocoa.m */,
+				5704FC2220645C3C0055A589 /* wcm_tablet_ez_windows.h */,
+				5704FC2320645C3C0055A589 /* wcm_tablet_ez_windows.c */,
+				5704FC2620645C480055A589 /* wcm_tablet_ez_linux.h */,
+				5704FC2720645C480055A589 /* wcm_tablet_ez_linux.c */,
 				57AAD902206306E500136719 /* wcm_tablet_ez.c */,
 				57AAD903206306E500136719 /* wcm_tablet_ez.h */,
 				57AAD8FF206306E500136719 /* wcm_tablet_x11.c */,
@@ -109,14 +185,21 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5704FC1E20645B050055A589 /* NSAppleEventDescriptorHelperCategory.h in Headers */,
+				5704FC2120645B050055A589 /* easytab.h in Headers */,
+				5704FC1F20645B050055A589 /* WacomTabletDriver.h in Headers */,
+				5704FC2420645C3C0055A589 /* wcm_tablet_ez_windows.h in Headers */,
 				57AAD9112063073C00136719 /* TabletAEDictionary.h in Headers */,
 				5760ECCE2062DD4200430B0A /* wcm.h in Headers */,
 				57AAD9132063073C00136719 /* NSAppleEventDescriptorHelperCategory.h in Headers */,
 				57AAD909206306E500136719 /* wcm_tablet_ez.h in Headers */,
 				57AAD9142063073C00136719 /* WacomTabletDriver.h in Headers */,
+				5704FC1C20645B050055A589 /* TabletAEDictionary.h in Headers */,
 				5760ECE120630DB600430B0A /* wcm_tablet_pencil.h in Headers */,
 				57AAD906206306E500136719 /* wcm_tablet_x11.h in Headers */,
 				57AAD907206306E500136719 /* wcm_tablet_cocoa.h in Headers */,
+				5704FC2020645B050055A589 /* wintab.h in Headers */,
+				5704FC2820645C480055A589 /* wcm_tablet_ez_linux.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,13 +260,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5704FC1D20645B050055A589 /* WacomTabletDriver.m in Sources */,
 				57AAD9102063073C00136719 /* NSAppleEventDescriptorHelperCategory.m in Sources */,
 				57AAD908206306E500136719 /* wcm_tablet_ez.c in Sources */,
 				5760ECE220630DB600430B0A /* wcm_tablet_pencil.m in Sources */,
+				5704FC1B20645B050055A589 /* NSAppleEventDescriptorHelperCategory.m in Sources */,
 				5760ECCD2062DD4200430B0A /* wcm.c in Sources */,
+				5704FC2520645C3C0055A589 /* wcm_tablet_ez_windows.c in Sources */,
 				57AAD9122063073C00136719 /* WacomTabletDriver.m in Sources */,
 				57AAD905206306E500136719 /* wcm_tablet_x11.c in Sources */,
 				57AAD904206306E500136719 /* wcm_tablet_cocoa.m in Sources */,
+				5704FC2920645C480055A589 /* wcm_tablet_ez_linux.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
