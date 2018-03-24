@@ -59,6 +59,8 @@ endif()
 
 if(${OperatingSystem} MATCHES "linux")
 	file(GLOB sources src/wcm.c src/wcm_tablet_ez.c src/*linux*.c src/*x11*.c)
+	add_library(wcm STATIC ${sources} ${FOUNDATION_LIB})
+	# target_link_libraries(wcm LINK_PUBLIC )
 endif()
 
 

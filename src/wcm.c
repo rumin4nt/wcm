@@ -11,6 +11,8 @@
 static int window_width;
 static int window_height;
 
+#include <stdlib.h>
+
 #ifdef __APPLE__
 #include "wcm_tablet_cocoa.h"
 #else

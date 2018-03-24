@@ -32,9 +32,7 @@ static double dpi	    = 1;
 static double display_radius = 1;
 static bool   down	   = false;
 
-static void joystick_callback(int joy, int event)
-{
-}
+
 
 static void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 {
@@ -111,7 +109,7 @@ static void setup_callbacks()
 	glfwSetWindowSizeCallback(window, window_size_callback);
 
 	//#ifndef R4_COMPAT_OPENFRAMEWORKS
-	glfwSetJoystickCallback(joystick_callback);
+	//glfwSetJoystickCallback(joystick_callback);
 	//#endif
 
 	glfwSetScrollCallback(window, scroll_callback);

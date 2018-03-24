@@ -10,8 +10,11 @@
 
 #ifdef __linux__
 
+#include <stdio.h>
+
 #define EASYTAB_IMPLEMENTATION
 #include "../contrib/easytab/easytab.h"
+#include <X11/Xlib.h>
 
 Display* Disp;
 Window   Win;
@@ -29,7 +32,7 @@ int wcm_tablet_ez_linux_update(void)
 	while (XPending(Disp)) // Event loop
 	{
 		XEvent Event;
-		XNextEvent(XlibDisplay, &Event);
+		XNextEvent(Disp, &Event);
 
 		if (EasyTab_HandleEvent(&Event) == EASYTAB_OK) // Event
 		{
@@ -38,17 +41,17 @@ int wcm_tablet_ez_linux_update(void)
 
 		switch (Event.type)
 		{
-			...
+
 		}
 	}
 }
 
 void wcm_tablet_ez_linux_deinit(void)
 {
-	EasyTab_Unload();
+	EasyTab_Unload(Disp);
 }
 
-void wcm_tablet_ez_linux_query(double* x double* y, double* pressure)
+void wcm_tablet_ez_linux_query(double* x, double* y, double* pressure)
 {
 
 	*x	= EasyTab->PosX;

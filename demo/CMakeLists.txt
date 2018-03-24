@@ -120,6 +120,11 @@ if(${OperatingSystem} MATCHES "macos")
 	${CV_LIB}
 	)
 
-endif(${OperatingSystem} MATCHES "macos")
+endif()
 
+if(${OperatingSystem} MATCHES "linux")
+	target_link_libraries(wcm_demo LINK_PUBLIC wcm glfw m X11 Xi GL
+	)
+
+endif()
 

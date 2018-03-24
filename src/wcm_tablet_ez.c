@@ -11,11 +11,11 @@
 #ifndef __APPLE__
 
 #ifdef WIN32
-#include <wcm_tablet_ez_windows.h>
+#include "wcm_tablet_ez_windows.h"
 #endif
 
 #ifdef __linux__
-#include <wcm_tablet_ez_linux.h>
+#include "wcm_tablet_ez_linux.h"
 #endif
 
 int wcm_ez_init(void)
