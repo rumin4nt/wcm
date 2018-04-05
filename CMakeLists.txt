@@ -42,7 +42,7 @@ set(build_demo YES)
 
 
 if(${OperatingSystem} MATCHES "macos")
-	file(GLOB sources src/wcm.c src/*.m)
+	file(GLOB sources src/wcm.c src/*.m ${CMAKE_CURRENT_SOURCE_DIR}/contrib/wacom/macos/*.m)
 	FIND_LIBRARY(COCOA_LIB Cocoa)
 	FIND_LIBRARY(OPENGL_LIB OpenGL)
 	FIND_LIBRARY(CARBON_LIB Carbon)
