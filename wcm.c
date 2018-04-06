@@ -14,10 +14,10 @@ static int window_height;
 #include <stdlib.h>
 
 #ifdef __APPLE__
-#include "wcm_tablet_cocoa.h"
+#include "src/wcm_tablet_cocoa.h"
 #else
 
-#include "wcm_tablet_ez.h"
+#include "src/wcm_tablet_ez.h"
 #endif
 
 #

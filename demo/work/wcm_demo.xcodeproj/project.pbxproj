@@ -310,6 +310,8 @@
 				HEADER_SEARCH_PATHS = (
 					../../src/,
 					/usr/local/include,
+					../contrib,
+					../../../../,
 				);
 				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -324,6 +326,8 @@
 				HEADER_SEARCH_PATHS = (
 					../../src/,
 					/usr/local/include,
+					../contrib,
+					../../../../,
 				);
 				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";

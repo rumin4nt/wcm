@@ -13,7 +13,7 @@
 #include <AppKit/NSEvent.h>
 #include <Foundation/Foundation.h>
 
-#include "wcm.h"
+#include <wcm/wcm.h>
 
 //extern AppSettings   app_settings;
 //extern AppExtensions app_extensions;
