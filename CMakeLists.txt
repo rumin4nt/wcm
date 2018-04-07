@@ -1,4 +1,5 @@
 cmake_minimum_required(VERSION 3.0)
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/")
 
 project(wcm)
 set(project_name wcm)
@@ -8,9 +9,20 @@ set(wcm_VERSION_MINOR 0)
 set(wcm_VERSION_PATCH 1)
 
 option(BuildLibrary "Build wcm library" ON)
-option(BuildDocumentation "Build documentation (requires doxygen)" OFF)
+#option(BuildDocumentation "Build documentation (requires doxygen)" OFF)
 option(BuildDemo "BuildDemo" OFF)
 option(BuildTest "BuildTest" OFF)
+
+
+if(CMAKE_BUILD_TYPE)
+  if (${CMAKE_BUILD_TYPE} STREQUAL "release")
+    #set(BuildDocumentation ON)
+  else()
+    set(CMAKE_BUILD_TYPE "debug")
+  endif()
+else()
+  set(CMAKE_BUILD_TYPE "debug")
+endif()
 
 macro(use_c99)
   if(CMAKE_VERSION VERSION_LESS "3.1")
@@ -34,14 +46,29 @@ IF(WIN32)
   SET(OperatingSystem "windows")
 ENDIF()
 
-find_package(Doxygen)
-option(BUILD_DOCUMENTATION
-       "Create and install the HTML based API
-documentation (requires Doxygen)"
-       ${DOXYGEN_FOUND})
+#find_package(Doxygen)
+#option(BUILD_DOCUMENTATION
+#       "Create and install the HTML based API
+#documentation (requires Doxygen)"
+#       ${DOXYGEN_FOUND})
 
-if(BUILD_DOCUMENTATION)
-  set(build_doc YES)
+#if(BUILD_DOCUMENTATION)
+#  set(build_doc YES)
+#endif()
+
+find_package(LibGLFW )
+include_directories(${LibGLFW_INCLUDE_DIRS})
+set(LIBS ${LIBS} ${LibGLFW_LIBRARIES})
+
+if (GLFW_FOUND)
+	if (${CMAKE_BUILD_TYPE} STREQUAL "release")
+		set(BuildDemo YES)
+	endif()
+	if(BuildDemo)
+		set(build_demo YES)
+	endif()
+else()
+	message("Did not find GLFW, cannot build demo.")
 endif()
 
 
