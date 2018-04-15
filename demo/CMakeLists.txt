@@ -9,11 +9,11 @@ set (wcm_demo_VERSION_PATCH 1)
 
 IF(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
    SET(OperatingSystem "macos")
-ENDIF(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+endif()
 
 IF(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
     SET(OperatingSystem "linux")
-ENDIF(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
+endif()
 
 IF(WIN32)
     SET(OperatingSystem "windows")
@@ -56,17 +56,7 @@ ENDIF (OperatingSystem STREQUAL "linux")
 
 
 if(${OperatingSystem} MATCHES "macos")
-	find_library(SNDFILE_LIB sndfile $ENV{HOME}/art/r4/contrib/platform/darwin/libsndfile)
-	find_library(FTGL_LIB ftgl $ENV{HOME}/art/r4/contrib/platform/darwin)
-	find_library(FREETYPE_LIB freetype $ENV{HOME}/art/r4/contrib/platform/darwin)
-	find_library(SNDFILE_LIB sndfile $ENV{HOME}/art/r4/contrib/platform/darwin)
-	find_library(PHYSFS_LIB physfs $ENV{HOME}/art/r4/contrib/platform/darwin)
-	find_library(VORBIS_LIB vorbis $ENV{HOME}/art/r4/contrib/platform/darwin)
-	find_library(GLFW3_LIB glfw3 $ENV{HOME}/art/r4/contrib/platform/darwin)
-	find_library(LO_LIB lo $ENV{HOME}/art/r4/contrib/platform/darwin)
-	find_library(OGG_LIB ogg $ENV{HOME}/art/r4/contrib/platform/darwin)
-	find_library(FLAC_LIB FLAC $ENV{HOME}/art/r4/contrib/platform/darwin)
-	find_library(VORBISENC_LIB vorbisenc $ENV{HOME}/art/r4/contrib/platform/darwin)
+	#	this is cruft from r4, need like none of it maybe just carbon/cocoa
 	find_library(CPLUSPLUS c++ )
 	find_library(SYPHON_LIB Syphon)
 	FIND_LIBRARY(PA_LIB portaudio $ENV{HOME}/art/r4/contrib/platform/darwin)

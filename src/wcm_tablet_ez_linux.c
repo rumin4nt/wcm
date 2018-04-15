@@ -15,16 +15,26 @@
 #define EASYTAB_IMPLEMENTATION
 #include "../contrib/easytab/easytab.h"
 #include <X11/Xlib.h>
+#include <stdbool.h>
 
 Display* Disp;
 Window   Win;
 
 int wcm_tablet_ez_linux_init(void)
 {
+    	Disp = XOpenDisplay(NULL);
+    	if ( !Disp )
+    	{
+    		printf("Unable to connect to X server?\n");
+    		return false;
+    	}
+
 	if (EasyTab_Load(Disp, Win) != EASYTAB_OK) // Load
 	{
 		printf("Tablet init failed\n");
+		return false;
 	}
+	return true;
 }
 
 int wcm_tablet_ez_linux_update(void)
