@@ -312,6 +312,7 @@
 					/usr/local/include,
 					../contrib,
 					../../../../,
+					../../../,
 				);
 				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -328,6 +329,7 @@
 					/usr/local/include,
 					../contrib,
 					../../../../,
+					../../../,
 				);
 				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";

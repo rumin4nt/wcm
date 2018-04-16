@@ -235,7 +235,7 @@ void process_event(NSEvent* theEvent)
 	//	fsc;
 	//	OK DO WE HAVE EVERYTHING?
 	//	I think this is safe.  We'd NEVER be here if this was a mouse event, soooo
-	//double w = app_settings.framebuffer_height;
+	//double w = app_settings.frame_height;
 
 	switch (event_type)
 	{
