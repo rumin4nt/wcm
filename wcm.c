@@ -20,7 +20,7 @@ static int window_height;
 #include "src/wcm_tablet_ez.h"
 #endif
 
-#include <stdio.h>
+#
 /*
  typedef void(*tablet_down_func)(double x, double y, double p);
  typedef void(*tablet_up_func)(double x, double y, double p);
@@ -62,6 +62,13 @@ void wcm_deinit(void)
 	wcm_ez_deinit();
 
 #endif
+}
+
+void wcm_update(void)
+{
+	#ifndef __APPLE__
+	wcm_ez_update();
+	#endif
 }
 
 void wcm_resize(int w, int h)

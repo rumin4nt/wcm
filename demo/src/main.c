@@ -193,7 +193,6 @@ int main(int argc, const char* argv[])
 	wcm_set_tablet_motion_func(my_tablet_motion);
 	wcm_set_tablet_drag_func(my_tablet_drag);
 
-	wcm_init(window_w, window_h);
 
 	/* Make the window's context current */
 	glfwMakeContextCurrent(window);
@@ -212,6 +211,7 @@ int main(int argc, const char* argv[])
 
 	d_color_clear(1, 1, 1, 1);
 	d_color(0, 0, 0, 1);
+	wcm_init(window_w, window_h);
 
 	/* Loop until the user closes the window */
 	while (!glfwWindowShouldClose(window))
@@ -223,7 +223,11 @@ int main(int argc, const char* argv[])
 		glfwSwapBuffers(window);
 
 		/* Poll for and process events */
+
+		wcm_update();
 		glfwPollEvents();
+
+
 	}
 
 	glfwTerminate();

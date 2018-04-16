@@ -22,13 +22,12 @@ Window   Win;
 
 int wcm_tablet_ez_linux_init(void)
 {
-    	Disp = XOpenDisplay(NULL);
-    	if ( !Disp )
-    	{
-    		printf("Unable to connect to X server?\n");
-    		return false;
-    	}
-
+	Disp = XOpenDisplay(NULL);
+	if ( !Disp )
+	{
+		printf("Couldn't connect to x server?\n");
+		return false;
+	}
 	if (EasyTab_Load(Disp, Win) != EASYTAB_OK) // Load
 	{
 		printf("Tablet init failed\n");
@@ -46,13 +45,24 @@ int wcm_tablet_ez_linux_update(void)
 
 		if (EasyTab_HandleEvent(&Event) == EASYTAB_OK) // Event
 		{
+			printf("m?");
 			continue; // Tablet event handled
 		}
+		//if ( Event->type == EasyTab->MotionType)
+		//{
 
-		switch (Event.type)
+		//}
+		printf("Event: %d\n", Event.type);
+		/*switch (Event.type)
 		{
+			case EasyTab->MotionType:
+				printf("m");
+				break;
+			default:
+				printf("no");
+				break;
+		}*/
 
-		}
 	}
 }
 

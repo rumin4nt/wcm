@@ -19,6 +19,7 @@ typedef void (*tablet_proximity_func)(int v);
 
 int  wcm_init(int window_width, int window_height);
 void wcm_deinit(void);
+void wcm_update(void);
 
 void wcm_resize(int window_width, int window_height);
 void wcm_set_scaling_factor(double scale_factor);
