@@ -14,11 +14,6 @@
 		57AAD904206306E500136719 /* wcm_tablet_cocoa.m in Sources */ = {isa = PBXBuildFile; fileRef = 57AAD8FE206306E500136719 /* wcm_tablet_cocoa.m */; };
 		57AAD907206306E500136719 /* wcm_tablet_cocoa.h in Headers */ = {isa = PBXBuildFile; fileRef = 57AAD901206306E500136719 /* wcm_tablet_cocoa.h */; };
 		57AAD9102063073C00136719 /* NSAppleEventDescriptorHelperCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 57AAD90B2063073B00136719 /* NSAppleEventDescriptorHelperCategory.m */; };
-		57AAD9112063073C00136719 /* TabletAEDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 57AAD90C2063073B00136719 /* TabletAEDictionary.h */; };
-		57AAD9122063073C00136719 /* WacomTabletDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = 57AAD90D2063073B00136719 /* WacomTabletDriver.m */; };
-		57AAD9132063073C00136719 /* NSAppleEventDescriptorHelperCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = 57AAD90E2063073B00136719 /* NSAppleEventDescriptorHelperCategory.h */; };
-		57AAD9142063073C00136719 /* WacomTabletDriver.h in Headers */ = {isa = PBXBuildFile; fileRef = 57AAD90F2063073B00136719 /* WacomTabletDriver.h */; };
-		57D732982070684700726D51 /* NSAppleEventDescriptorHelperCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 57D732902070684700726D51 /* NSAppleEventDescriptorHelperCategory.m */; };
 		57D732992070684700726D51 /* TabletAEDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 57D732912070684700726D51 /* TabletAEDictionary.h */; };
 		57D7329A2070684700726D51 /* WacomTabletDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = 57D732922070684700726D51 /* WacomTabletDriver.m */; };
 		57D7329B2070684700726D51 /* NSAppleEventDescriptorHelperCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = 57D732932070684700726D51 /* NSAppleEventDescriptorHelperCategory.h */; };
@@ -158,11 +153,8 @@
 			files = (
 				57D732992070684700726D51 /* TabletAEDictionary.h in Headers */,
 				57D7329C2070684700726D51 /* WacomTabletDriver.h in Headers */,
-				57AAD9112063073C00136719 /* TabletAEDictionary.h in Headers */,
 				57D7329B2070684700726D51 /* NSAppleEventDescriptorHelperCategory.h in Headers */,
 				5721DC8D2077106B00C141BB /* wcm.h in Headers */,
-				57AAD9132063073C00136719 /* NSAppleEventDescriptorHelperCategory.h in Headers */,
-				57AAD9142063073C00136719 /* WacomTabletDriver.h in Headers */,
 				57D7329D2070684700726D51 /* wintab.h in Headers */,
 				5760ECE120630DB600430B0A /* wcm_tablet_pencil.h in Headers */,
 				57AAD907206306E500136719 /* wcm_tablet_cocoa.h in Headers */,
@@ -195,7 +187,7 @@
 		5760ECA72062D68C00430B0A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = ruminant;
 				TargetAttributes = {
 					5760ECAE2062D68C00430B0A = {
@@ -230,8 +222,6 @@
 				57D7329A2070684700726D51 /* WacomTabletDriver.m in Sources */,
 				57AAD9102063073C00136719 /* NSAppleEventDescriptorHelperCategory.m in Sources */,
 				5760ECE220630DB600430B0A /* wcm_tablet_pencil.m in Sources */,
-				57D732982070684700726D51 /* NSAppleEventDescriptorHelperCategory.m in Sources */,
-				57AAD9122063073C00136719 /* WacomTabletDriver.m in Sources */,
 				57AAD904206306E500136719 /* wcm_tablet_cocoa.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -253,6 +243,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -260,6 +251,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -308,6 +300,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -315,6 +308,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
