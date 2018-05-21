@@ -34,6 +34,8 @@ macro(use_c99)
   endif()
 endmacro(use_c99)
 
+use_c99()
+
 IF(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
   SET(OperatingSystem "macos")
 ENDIF(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
@@ -83,7 +85,6 @@ if(${OperatingSystem} MATCHES "macos")
   FIND_LIBRARY(CARBON_LIB Carbon)
   FIND_LIBRARY(CV_LIB CoreVideo)
   FIND_LIBRARY(FOUNDATION_LIB Foundation)
-
 endif()
 
 if(${OperatingSystem} MATCHES "windows")
@@ -91,7 +92,7 @@ if(${OperatingSystem} MATCHES "windows")
 endif()
 
 if(${OperatingSystem} MATCHES "linux")
-  file(GLOB sources src/wcm.c src/wcm_tablet_ez.c src/*linux*.c src/*x11*.c)
+  file(GLOB sources wcm.c src/wcm_tablet_ez.c src/*linux*.c src/*x11*.c)
   add_library(wcm STATIC ${sources} ${FOUNDATION_LIB}) # target_link_libraries(w
                                                        # cm LINK_PUBLIC )
 endif()
