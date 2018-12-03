@@ -32,8 +32,6 @@ static double dpi	    = 1;
 static double display_radius = 1;
 static bool   down	   = false;
 
-
-
 static void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 {
 	window_h = height;
@@ -120,12 +118,12 @@ static void draw(void)
 {
 	d_clear();
 
-	d_line(0, 0, mouse_x, mouse_y);
-	d_push();
+	drw_line(0, 0, mouse_x, mouse_y);
+	drw_push();
 
 	d_translate(mouse_x, mouse_y, 0);
 
-	d_line(0, 0, 32, 32);
+	drw_line(0, 0, 32, 32);
 	if (down)
 	{
 		d_color(0, 0, 0, 1);
@@ -193,7 +191,6 @@ int main(int argc, const char* argv[])
 	wcm_set_tablet_motion_func(my_tablet_motion);
 	wcm_set_tablet_drag_func(my_tablet_drag);
 
-
 	/* Make the window's context current */
 	glfwMakeContextCurrent(window);
 
@@ -226,8 +223,6 @@ int main(int argc, const char* argv[])
 
 		wcm_update();
 		glfwPollEvents();
-
-
 	}
 
 	glfwTerminate();

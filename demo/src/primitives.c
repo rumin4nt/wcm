@@ -17,9 +17,8 @@
 #define CIRCLE_PRECISION 16
 #include <math.h>
 
-#include <stdlib.h>
 #include <stdio.h>
-
+#include <stdlib.h>
 
 static int    fill;
 static double dpi = 1;
@@ -29,7 +28,7 @@ void d_color_clear(double r, double g, double b, double a)
 	glClearColor(r, g, b, a);
 }
 
-void d_line(double ax, double ay, double bx, double by)
+void drw_line(double ax, double ay, double bx, double by)
 {
 	glBegin(GL_LINES);
 	glVertex2f(ax, ay);
@@ -109,7 +108,7 @@ void d_setup(int width, int height)
 	d_setup_view_ortho(width, height);
 }
 
-void d_push()
+void drw_push()
 {
 	glPushMatrix();
 }
@@ -173,12 +172,12 @@ void d_circle(float r)
 	 }
 	 circle = circle_defs[CIRCLE_PRECISION];
 	 glVertexPointer(2, GL_FLOAT, 0, circle);
-	 
+
 	 // cout << "c:" << circleArray[2] << endl;
 	 d_scale_u(r);
 	 fill ? glDrawArrays(GL_TRIANGLE_FAN, 0, CIRCLE_PRECISION)
 	 : glDrawArrays(GL_LINE_LOOP, 0, CIRCLE_PRECISION);
-	 
+
 	 //r_ellipse(r, r);
 	 */
 }
@@ -190,37 +189,38 @@ void d_ellipse(float _x, float _y)
 	 d_circle(_x);
 	 return;
 	 }*/
-	
+
 	// glEnableClientState( GL_VERTEX_ARRAY );
-	
+
 	// glEnable(GL_BLEND);
 	// glBlendEquation(GL_FUNC_ADD);
 	// glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	
+
 	float deg2rad = (M_PI / CIRCLE_PRECISION);
-	
+
 	const int renderLineSize = (CIRCLE_PRECISION * 2);
-	
+
 	GLfloat* arr = malloc(sizeof(GLfloat) * renderLineSize);
 	// GLfloat circleArray[ renderLineSize ];
 	int i;
-	for (i = 0; i < renderLineSize; i += 2) {
+	for (i = 0; i < renderLineSize; i += 2)
+	{
 		float degInRad = deg2rad * (float)i;
 		float x	= cos(degInRad + M_PI * .5) * (_x);
 		float y	= sin(degInRad + M_PI * .5) * (_y);
 		arr[i]	 = x;
 		arr[i + 1]     = y;
 	}
-	
+
 	// cout << '+';
 	glVertexPointer(2, GL_FLOAT, 0, arr);
-	
+
 	// cout << "c:" << circleArray[2] << endl;
 	fill ? glDrawArrays(GL_TRIANGLE_FAN, 0, CIRCLE_PRECISION)
-	: glDrawArrays(GL_LINE_LOOP, 0, CIRCLE_PRECISION);
-	
+	     : glDrawArrays(GL_LINE_LOOP, 0, CIRCLE_PRECISION);
+
 	free(arr);
-	
+
 	// fill ?
 	// glDrawArrays(GL_TRIANGLE_FAN, 0, CIRCLE_PRECISION ):
 	// glDrawArrays(GL_LINE_LOOP, 0, CIRCLE_PRECISION );

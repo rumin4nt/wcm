@@ -9,7 +9,6 @@
 #ifndef primitives_h
 #define primitives_h
 
-
 void d_color_clear(double r, double g, double b, double a);
 void d_clear(void);
 void d_setup(int width, int height);
@@ -17,12 +16,12 @@ void d_setup_view_ortho(int w, int h);
 
 void d_set_dpiscale(double v);
 
-void d_push(void);
+void drw_push(void);
 void d_pop(void);
 void d_translate(double x, double y, double z);
 void d_color(double r, double g, double b, double a);
 
-void d_line(double ax, double ay, double bx, double by);
+void drw_line(double ax, double ay, double bx, double by);
 void d_circle(float);
 void d_ellipse(float, float);
 
