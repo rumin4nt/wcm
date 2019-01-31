@@ -56,7 +56,7 @@ ELSE(NOT UNIX)
             /opt/local/include)
 
     FIND_LIBRARY(GLFW_LIBRARIES DOC "Absolute path to GLFW library."
-            NAMES glfw3.dll glfw.dylib libglfw.dylib libglfw.so libglfw.a
+            NAMES glfw3.dll glfw.dylib libglfw.dylib libglfw.so libglfw3.a
             PATHS
             /usr/lib/x86_64-linux-gnu
             /usr/local/lib
