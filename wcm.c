@@ -20,6 +20,8 @@ static int window_height;
 #include "src/wcm_tablet_ez.h"
 #endif
 
+#include <stdio.h>
+
 #
 /*
  typedef void(*tablet_down_func)(double x, double y, double p);
